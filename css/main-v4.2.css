@@ -37,8 +37,7 @@ p > span {
     background-color: #F5F5F5;
     border-radius: 4px;
     padding: 2px;
-    white-space: unset;
-    margin-left: .25rem;
-    margin-right: .25rem;
-    line-height: 140%;
+    margin-left: .125rem;
+    margin-right: .125rem;
+    display: inline-block;
 }
