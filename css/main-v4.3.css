@@ -5,6 +5,7 @@ html
     font-family: 'Roboto Mono', monospace;
     font-weight: 300;
     text-rendering: optimizeLegibility;
+    font-size: 1em;
 }
 header > p {
     font-style: italic;
@@ -33,11 +34,23 @@ ul > li::before {
 section > h2::before {
     content: "## "
 }
-p > span {
+code > span {
     background-color: #F5F5F5;
     border-radius: 4px;
     padding: 2px;
     margin-left: .125rem;
     margin-right: .125rem;
-    display: inline-block;
+}
+@media(max-width: 800px) {
+    .ascii {
+        font-size: 1.75vw;
+    }
+    code {
+        padding: 8px 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    code > span {
+        margin: .125rem;
+    }
 }
