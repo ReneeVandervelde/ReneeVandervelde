@@ -3,7 +3,7 @@
         background-color: #212121;
         color: #fff;
     }
-}
-p > span {
-    background-color: #424242;
+    p > span {
+        background-color: #424242;
+    }
 }
