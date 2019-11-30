@@ -34,12 +34,11 @@ section > h2::before {
     content: "## "
 }
 p > span {
-    /* border: 1px #FAFAFA solid; */
     background-color: #F5F5F5;
     border-radius: 4px;
     padding: 2px;
     white-space: unset;
     margin-left: .25rem;
     margin-right: .25rem;
-
+    line-height: 140%;
 }
