@@ -1,0 +1,43 @@
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: #212121;
+        color: #fff;
+    }
+    code,
+    code.grouped > span
+    {
+        background-color: #424242;
+    }
+
+    button,
+    input,
+    textarea
+    {
+        color: #fff;
+    }
+
+    .featured
+    {
+        border-color: #424242;
+    }
+
+    button,
+    input[type=submit],
+    input[type=button]
+    {
+        background-color: #212121;
+        border-color: #424242;
+    }
+    button:hover,
+    input[type=submit]:hover,
+    input[type=button]:hover
+    {
+        background-color: #323232;
+    }
+    button:active,
+    input[type=submit]:active,
+    input[type=button]:active
+    {
+        background-color: #424242;
+    }
+}

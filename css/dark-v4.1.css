@@ -1,9 +1,0 @@
-@media (prefers-color-scheme: dark) {
-    html {
-        background-color: #212121;
-        color: #fff;
-    }
-    code > span {
-        background-color: #424242;
-    }
-}

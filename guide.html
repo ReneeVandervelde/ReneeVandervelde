@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Style Guide</title>
+    
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,500" rel="stylesheet">
+    <link rel="stylesheet" href="css/main-v5.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/dark-v5.css" type="text/css" media="all" />
+</head>
+<body>
+    <header>
+        <h1>
+            <pre class="ascii">
+   ______       __      _____     _    __   
+  / __/ /___ __/ /__   / ___/_ __(_)__/ /__ 
+ _\ \/ __/ // / / -_) / (_ / // / / _  / -_)
+/___/\__/\_, /_/\__/  \___/\_,_/_/\_,_/\__/ 
+        /___/                               
+            </pre>
+        </h1>
+    </header>
+    <section>
+        <article>
+            <h1>Headings!</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <p>
+                Paragraph text 
+                and a <a href="#">link</a> 
+                and a <code>reference</code>
+                and a <code class="grouped"><span>group</span><span>of</span><span>references</span></code>
+            </p>
+        </article>
+        <article>
+            <h1>Lists</h1>
+            <ul>
+                <li>Here's a list</li>
+                <li>of unordered things</li>
+            </ul>
+        </article>
+        <article>
+            <h1>Forms</h1>
+            <form>
+
+                <label for="text">Text Box:</label>
+                <input type="text" id="text" />
+                
+                <label for="textarea">Text Area:</label>
+                <textarea id="textarea"></textarea>
+
+                <label>
+                    <input type="checkbox" value="Check" />
+                    Check
+                </label>
+
+                <label>
+                    <input type="radio" name="radio" value="Check" />
+                    Radio
+                </label>
+                <label>
+                    <input type="radio" name="radio" value="Check" />
+                    Radio B
+                </label>
+
+                <button>Secondary Button</button>
+                <button class="primary">Primary Button</button>
+                <input type="submit" value="Submit"/>
+            </form>
+        </article>
+        <article>
+            <h1>Code Blocks</h1>
+<pre><code>
+fun main() {
+    println("Hello Wald!")
+}
+
+</code></pre>
+        </article>
+    </section>
+    <section class="featured content-break">
+        <h1>Featured Sections</h1>
+        <p>Can be used to highlight primary actions.</p>
+        <button>No!</button>
+        <button class="primary">Yes!</button>
+    </section>
+</body>
+</html>
