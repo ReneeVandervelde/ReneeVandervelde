@@ -1,10 +1,13 @@
 ### 👋 Hi! I'm Renee
 
-I'm an Engineer, Currently working @Stripe.
+I'm an Engineer, Currently working [@Stripe].
 
 This is my Personal GitHub, where I primarily focus on creating Kotlin
 Multiplatform tools. Most of my projects are located on the group page
-for @InkApplications
+for [@InkApplications]
+
+[@Stripe]: https://github.com/stripe
+[@InkApplications]: https://github.com/InkApplications
 
 -----------
 
