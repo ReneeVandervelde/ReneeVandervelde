@@ -13,6 +13,11 @@ body
 {
     padding-top: 1rem;
 }
+.emoji
+{
+    font-size: 2rem;
+    font-style: normal;
+}
 
 
 @media(max-width: 800px) {
