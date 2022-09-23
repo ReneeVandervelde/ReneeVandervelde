@@ -9,10 +9,10 @@
 
     <title>Renee Vandervelde</title>
     
-    <link rel="stylesheet" href="css/main-v6.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/main-v7.css" type="text/css" media="all" />
 </head>
-<body>
-    <header>
+<body class="sectioned">
+    <header class="content-break">
         <h1 aria-label="Renee Vandervelde">
             <pre aria-hidden="true" class="ascii">
    ___                     _   __             __                 __   __   
@@ -21,57 +21,63 @@
 /_/|_|\__/_//_/\__/\__/   |___/\_,_/_//_/\_,_/\__/_/  |___/\__/_/\_,_/\__/ 
             </pre>
         </h1>
-        <p><span class="emoji">👋</span> I'm an Engineer at <a href="https://stripe.com">Stripe</a>, Photographer and friend of Open Source Software.</p>
-        <p>Currently thriving in Minneapolis, MN.</p>
+        <div class="columned reversed">
+            <img src="stickers/hi.png" alt="Fox Waving" class="sticker" />
+            <div class="content">
+                <p>I'm an Engineer at <a href="https://stripe.com">Stripe</a>, Photographer and friend of Open Source Software.</p>
+                <p>Currently thriving in Minneapolis, MN.</p>
+            </div>
+        </div>
     </header>
-    <section>
-        <h2>Software</h2>
-        <p>
-            Find my code on <a href="https://github.com/ReneeVandervelde">GitHub</a>.
-        </p>
-        <p>
-            I write at 
-            <a href="https://medium.com/@ReneeVandervelde">Medium</a>.
-        </p>
+    <section class="columned">
+        <div class="content">
+            <h2>Software</h2>
+            <p>
+                I am primarily focused on <strong>Kotlin</strong> development.
+            </p>
+            <p>
+                Find my code on <a href="https://github.com/ReneeVandervelde">GitHub</a>.
+            </p>
+            <p>
+                I write at 
+                <a href="https://medium.com/@ReneeVandervelde">Medium</a>.
+            </p>
+        </div>
+        <img src="stickers/hacktheplanet.png" alt="Fox Hacking" class="sticker" />
     </section>
     <section>
         <h2>Resume</h2>
         <p>I've been making software professionally for over 10 years.</p>
         <p>
-            You can find my updated resume on 
-            <a href="https://stackoverflow.com/cv/reneevandervelde">StackOverflow</a>.
+            I do not use LinkedIn. My resume is available
+            <a href="resume.html">here</a>.
         </p>
     </section>
-    <section>
-        <h2>Photography</h2>
-        <p>
-            You can find my photos on
-            <a href="https://500px.com/ReneeVandervelde">500px</a>.
-        </p>
-    </section>
-    <section>
-        <h2>Security</h2>
-        <p>
-            You can find me on
-            <a href="https://keybase.io/ReneeVandervelde">Keybase</a>.
-        </p>
-        <p>
-            My PGP fingerprint is:
-            <code class="grouped">
-                <span>F4F0</span><span>FCBA</span><span>19C3</span><span>71E2</span><span>FFD0</span><span>8CB6</span><span>2BDD</span><span>0590</span><span>E081</span><span>F37C</span>
-            </code>
-            <br />
-            <a href="pgp-ReneeVandervelde.asc">Download the full key</a>.
-        </p>
-    </section>
-    <section>
-        <h2>Ham Radio</h2>
-        <p>I'm an amateur radio technician: <code>KE0YOG</code></p>
-        <p>I typically monitor Minnesota DMR Channels and Repeaters in the Northeast Minneapolis area.</p>
+    <section class="columned">
+        <div class="content">
+            <h2>Security</h2>
+            <p>
+                My PGP fingerprint is:
+                <code class="grouped">
+                    <span>F4F0</span><span>FCBA</span><span>19C3</span><span>71E2</span><span>FFD0</span><span>8CB6</span><span>2BDD</span><span>0590</span><span>E081</span><span>F37C</span>
+                </code>
+                <br />
+                <a href="pgp-ReneeVandervelde.asc">Download the full key</a>.
+            </p>
+        </div>
+        <img src="stickers/foilhat.png" alt="Fox in a Tinfoil Hat" class="sticker" />
     </section>
     <section>
         <h2>Social Media</h2>
-        <p>I no longer use any social media.</p>
+        <p>I no longer use any social media, nor LinkedIn.</p>
+    </section>
+    <section class="columned">
+        <div class="content">
+            <h2>Ham Radio</h2>
+            <p>I'm an amateur radio technician: <code>KE0YOG</code></p>
+            <p>I typically monitor Minnesota DMR Channels and Repeaters in the Northeast Minneapolis area.</p>
+        </div>
+        <img src="stickers/radio.png" alt="Fox Talking on a Radio" class="sticker" />
     </section>
     <section>
         <h2>Contact</h2>
@@ -79,7 +85,7 @@
             You can reach me at <a href="mailto:hello@reneevandervelde.com">hello@ReneeVandervelde.com</a>.
         </p>
     </section>
-    <footer>
+    <footer class="content-break footer">
         <span class="emoji">✌️</span> You are appreciated.
     </footer>
 </body>
