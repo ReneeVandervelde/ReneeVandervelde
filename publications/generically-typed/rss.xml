@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Generically Typed</title>
+    <link>https://reneevandervelde.com/publications/index.html#generically-typed</link>
+    <description>A collection of my thoughts, in no particular order.</description>
+    <language>en-us</language>
+    <item>
+        <title>Why Not Medium?</title>
+        <pubDate>Sat, 10 Jul 2023 00:00:00 GMT</pubDate>
+        <guid>https://reneevandervelde.com/publications/generically-typed/why-not-medium.html</guid>
+        <link>https://reneevandervelde.com/publications/generically-typed/why-not-medium.html</link>
+        <description>
+            An explanation of why I'm moving my articles to my own website,
+            rather than rely on a platform like Medium or Substack.
+        </description>
+    </item>
+</channel>
+</rss>

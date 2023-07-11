@@ -1,4 +1,4 @@
-@import url("https://assets.inkapplications.com/css/main-v1.css");
+@import url("https://assets.inkapplications.com/css/main-v1.2.css");
 
 :root 
 {
@@ -12,6 +12,21 @@
 body
 {
     padding-top: 1rem;
+}
+hr
+{
+    width: 6rem;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px dashed var(--color-foreground-subtle);
+    margin: 1rem auto;
+    padding: 0;
+}
+article > time
+{
+    font-style: italic;
+    color: var(--color-foreground-subtle);
 }
 .emoji
 {
@@ -63,10 +78,6 @@ body > header > h1
 {
     font-style: italic;
     margin: 1em 0;
-}
-strong
-{
-    font-weight: 900;
 }
 
 @media(max-width: 800px) {

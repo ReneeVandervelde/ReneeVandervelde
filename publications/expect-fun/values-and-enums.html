@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Renee Vandervelde, Blog, kotlin, android">
+    <meta name="author" content="Renee Vandervelde">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Values and Enums</title>
+
+    <link rel="stylesheet" href="../../css/main-v7.css" type="text/css" media="all">
+    <link rel="alternate" type="application/rss+xml" title="Generically Typed" href="https://reneevandervelde.com/publications/expect-fun/rss.xml">
+    <script src="https://assets.inkapplications.com/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+    <header class="content-break">
+        <nav>
+            <ul>
+                <li>
+                    <a href="../../index.html">Home</a>
+                </li>
+                <li>
+                    <a href="../index.html">Publications</a>
+                </li>
+                <li>
+                    Expect Fun
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <article class="content-break">
+        <header>
+            <h1>Values and Enums</h1>
+            <p>Published on <time datetime="2023-07-06">2023-07-10</time></p>
+        </header>
+        <p>
+            A while back I
+            <a href="https://medium.com/@ReneeVandervelde/values-not-enums-1223f85c7f7">wrote</a>
+            about why I use value classes in place of enums in Kotlin.
+            I still follow this practice, but have some updated notes that
+            I want to share, as well as providing some additional <em>pros</em>
+            for each strategy.
+        </p>
+        <hr />
+        <h2>The Problem With Plain Values</h2>
+        <p>
+            Many applications rely on plain values for options. In some
+            applications, this may take the place of a string, and in others
+            an integer. On Android, for example, we frequently see Integer
+            constants:
+        </p>
+<pre class="kotlin"><code>intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)</code></pre>
+        <p>
+            Where the constant is defined in Android as:
+        </p>
+<pre class="java"><code>public static final int FLAG_ACTIVITY_NEW_TASK = 268435456;</code></pre>
+        <p>
+            The benefit of this strategy is partially for performance. While
+            the performance benefit of an int over an enum is marginal at best,
+            platforms such as Android try not to make assumptions about the
+            constraints on your application, and bias towards the
+            more performant variant.
+        </p>
+        <p>
+            Another benefit I don't often hear talked about is API stability.
+            The <code>Int</code> type is relatively universal and unbound.
+            Since we're not fixed to a single set of supported values, the
+            platform can easily change the value sets without needing careful
+            alignment between libraries. This will become more clear when
+            digging into using enums.
+        </p>
+        <p>
+            The downside of using plain values is that it's fairly ambiguous.
+            In addition to passing the pre-defined constants in, we could
+            also pass <em>just about anything</em> as one of these options.
+            We also lose auto-complete features much of the time.
+        </p>
+        <p>
+            Though Android has addressed some of these deficiencies with
+            annotations such as <code>@IntDef</code>, not all platforms
+            are targeting Android and will rely on these. In particular,
+            Kotlin Multiplatform projects often won't include these.
+        </p>
+        <h2>The Problem With Enums</h2>
+        <p>
+            Enums are frequently used as a solution to the deficiencies
+            of plain values. At first glance, they seem like everything
+            you want. They provide a constant set of type-safe values.
+            And Sealed classes offer a similar set of values while allowing
+            for multiple instances of each type.
+        </p>
+        <p>
+            In addition to type safety, both Enums and sealed classes, we
+            also gain exhaustive <code>when</code> statements, which are
+            enforced for all sealed/enum statements as of
+            <a href="https://kotlinlang.org/docs/whatsnew16.html">Kotlin 1.6</a>:
+        </p>
+<pre class="kotlin"><code>enum class LightType { 
+  LightBulb,
+  LightStrip,
+  FloodLight,
+}
+
+val example = when (lightType) {
+  LightBulb -> ...
+  LightStrip -> ...
+  FloodLight -> ...
+}</code></pre>
+        <p>
+            However, this comes with a major downside: Breaking Changes.
+            <br />
+            While having a bound set of values forces consumers of the API
+            to update their code to match the new set of values, this is
+            not always desirable. Consider the above set of types in an
+            SDK. Would we really want to make a new Major/breaking release
+            just to add a new product type? Probably not. Even internally,
+            if your codebase is large enough, migrating all of your existing
+            code may not be desirable; it may add unnecessary instability
+            and a large burden to your project.
+        </p>
+        <p>
+            Sometimes we <em>want</em> the values to be unbounded, or unstable.
+            Enums and Sealed Classes cannot provide this functionality.
+        </p>
+        <h2>The Value of Classes</h2>
+        <p>
+            When you want something that is unbounded like a plain value,
+            but with the type-safety of a class, Kotlin has a construct
+            aptly named:
+            <a href="https://kotlinlang.org/docs/inline-classes.html">value classes</a>.
+        </p>
+        <p>
+            Formerly called 'inline classes', value classes wrap a plain
+            value, and can be optimized by the compiler to have similar
+            performance characteristics of a plain value. Because of this,
+            these types also do not have the exhaustive requirements that
+            sealed types and enums have.
+        </p>
+        <p>
+            We can construct a value structure similar to an enum:
+        </p>
+<pre class="kotlin"><code>value class LightType private constructor(
+  private val type: String,
+) {
+  companion object {
+    val LightBulb = LightType("light_bulb")
+    val LightStrip = LightType("light_strip")
+    val FloodLight = LightType("flood_light")
+  }
+}</code></pre>
+        <p>
+            Now, when we handle that data, the type defers its identity to
+            the underlying type, in this case a <code>String</code>.
+            This means that Kotlin's compiler will require an <code>else</code>
+            statement in exhaustive situations:
+        </p>
+<pre class="kotlin"><code>val example = when (myLight) {
+ LightBulb -> TODO()
+ LightStrip -> TODO()
+ FloodLight -> TODO()
+ else -> TODO() // This else is *required* now
+}</code></pre>
+        <p>
+            I want to note that this isn't <em>inherently desirable</em> either.
+            Sometimes you <em>want</em> to provide a sealed type, allowing
+            the consumer to rely on a fixed set of outputs. The distinction
+            you should think about is whether your data type is stable or
+            unbounded.
+        </p>
+        <h2>Simple Mistakes</h2>
+        <h3>Closed vs Open</h3>
+        <p>
+            When I originally started using value classes like this, my
+            instinct was to provide somewhat similar utility functions as
+            the ones found in an enum class. for example, a
+            <code>values</code> method with the known values as a collection.
+            <br />
+            For example:
+        </p>
+<pre class="kotlin"><code>@JvmInline
+value class LightType private constructor(
+  private val type: String,
+) {
+  companion object {
+    val LightBulb = LightType("light_bulb")
+    val LightStrip = LightType("light_strip")
+    val FloodLight = LightType("flood_light")
+
+    fun values() = arrayOf(LightBulb, LightStrip, FloodLight)
+  }
+}</code></pre>
+        <p>
+            Something that's important to note about this, is that it only
+            works well if your code <em>owns the data</em> that the
+            value class provides. In this sense, the data is
+            <strong>closed</strong>.
+        </p>
+        <p>
+            It would be a mistake to add this method if the value is
+            originating from an API, for example. The distinction here is
+            that not only is the data unbounded, but it is also
+            <strong>open</strong>, meaning new values may appear in the
+            future from the API, and we should wrap that value in this
+            value class. 
+        </p>
+        <p>
+            In this sense, the provided <code>val</code> definitions within
+            our companion merely provide a convenient list of the current
+            known values, but the values are open for new
+            extensions. For this type of data, I also now recommend opening
+            the constructor and key parameter:
+        </p>
+        <pre class="kotlin"><code>@JvmInline
+value class LightType(
+    val type: String,
+) {
+  companion object {
+    val LightBulb = LightType("light_bulb")
+    val LightStrip = LightType("light_strip")
+    val FloodLight = LightType("flood_light")
+  }
+}</code></pre>
+        <p>
+            This allows the same type-safety, while not causing problems
+            when new values are added to the API.
+        </p>
+    </article>
+</body>
+</html>
