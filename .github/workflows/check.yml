@@ -10,5 +10,6 @@ jobs:
                 name: Checkout
                 uses: actions/checkout@v2.4.0
             -
-                name: check links
-                run: find . \( -name "*.html" -o -name "*.xml" \) -type f -exec sh -c 'echo "Checking links in file: $0"; bin/check_links "$0"' {} \;
+                name: Check Links
+                run: |
+                    find . \( -name "*.html" -o -name "*.xml" \) -type f -exec sh -c 'echo "Checking links in file: $0"; bin/check_links "$0"' {} \;
