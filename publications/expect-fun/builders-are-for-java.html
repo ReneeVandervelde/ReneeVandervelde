@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Renee Vandervelde, Blog, kotlin, java, android">
+    <meta name="author" content="Renee Vandervelde">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Builders are for Java</title>
+
+    <link rel="stylesheet" href="../../css/main-v7.css" type="text/css" media="all">
+    <link rel="alternate" type="application/rss+xml" title="Expect Fun" href="https://reneevandervelde.com/publications/expect-fun/rss.xml">
+    <script src="https://assets.inkapplications.com/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+    <header class="content-break">
+        <nav>
+            <ul>
+                <li>
+                    <a href="../../index.html">Home</a>
+                </li>
+                <li>
+                    <a href="../index.html">Publications</a>
+                </li>
+                <li>
+                    Expect Fun
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <article class="content-break">
+        <header>
+            <h1>Builders are for Java</h1>
+            <p>Published on <time datetime="2023-07-??">2023-07-??</time></p>
+        </header>
+        <p>
+            Do you need Builder classes when you're writing Kotlin? If you're
+            coming from Java, builder classes are ubiquitous. Kotlin brings
+            with it new data structures and methods for handling data and
+            state. Do
+            <a href="#">Data Classes</a>
+            replace the need for Builders when using Kotlin?
+        </p>
+        <hr />
+        <h2>Why use a Builder at all?</h2>
+        <p>
+            Consider a simple Data Class in Kotlin:
+        </p>
+<pre class="kotlin"><code>data class ConnectionConfig(
+    val url: String,
+    val useHttps: Boolean = true,
+    val cacheResults: Boolean = false,
+)</code></pre>
+        <p>
+            Creating new instances of this configuration works great in Kotlin
+            thanks to named and default arguments:
+        </p>
+<pre class="kotlin"><code>val myConfig = ConnectionConfig(
+    url = "example.com",
+    cacheResults = true,
+)</code></pre>
+        <p>
+            This structure has several advantages:
+        </p>
+        <ul>
+            <li>
+                The end result is effectively immutable, containing only
+                read-only properties.
+            </li>
+            <li>
+                You can provide defaults, where applicable, to the data.
+            </li>
+            <li>
+                You can specify any number of values at creation time.
+            </li>
+            <li>
+                It is clear which parameter You are setting, thanks to named
+                arguments.
+            </li>
+        </ul>
+        <p>
+            It seems there is no stong need for a builder here. Adding a
+            builder would only add complexity, while making the API less
+            concise. That is, assuming the caller is using Kotlin.
+        </p>
+        <p>
+            But what if the class is being used in a Java file? For example,
+            in a mixed-language project, or more likely, in an SDK. What
+            would this class be like to use when the consumer is using Java?
+        </p>
+        <p>
+            When you try to make that same call with Java, you find the
+            structure to be quite problematic:
+        </p>
+<pre class="java"><code>ConnectionConfig myConfig = new ConnectionConfig(
+    "example.com",
+    true, // Must also be specified to specify `cacheResults`
+    true,
+);</code></pre>
+        <p>
+            Due to the way telescoping methods work in java, you can't
+            <em>just</em> specify <code>cacheResults</code> anymore.
+            Even when you annotate the method with <code>@JvmOverloads</code>,
+            the previous arguments always need to be specified.
+        </p>
+        <p>
+            To make matters worse, the primitive arguments can easily be
+            confused, since they are not named. When reading the code,
+            it's no longer clear which boolean belongs to which parameter.
+        </p>
+        <p>
+            The result is an API that's tedious and error-prone. This was
+            the problem that Builder classes were meant to solve.
+            If the class is expected to be used by a Java caller, you do
+            still gain value out of builders in Kotlin.
+        </p>
+        <h2>Solving With a Builder</h2>
+        <p>
+            Builders are designed to solve these problems for Java. A minimal
+            implementation of a builder for this class looks like this:
+        </p>
+<pre class="kotlin"><code>data class ConnectionConfig(
+    val url: String,
+    val useHttps: Boolean,
+    val cacheResults: Boolean,
+) {
+    class Builder(
+        var url: String,
+    ) {
+        var useHttps: Boolean = true
+        var cacheResults: Boolean = false
+        
+        fun build() = ConnectionConfig(
+            url = url,
+            useHttps = useHttps,
+            cacheResults = cacheResults,
+        )
+    }
+}</code></pre>
+        <p>
+            Now the Java interface has many of the advantages that the Kotlin
+            interface had:
+        </p>
+<pre class="java"><code>ConnectionConfig myConfig = new ConnectionConfig("example.com")
+    .setCacheResults(false)
+    .build();</code></pre>
+    </article>
+</body>
+</html>
