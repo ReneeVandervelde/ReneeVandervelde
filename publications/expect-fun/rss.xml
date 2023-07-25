@@ -5,7 +5,16 @@
     <description>A series on Kotlin development, with a focus on multiplatform applications.</description>
     <language>en-us</language>
     <item>
-        <title>Values and Enums</title>
+        <title>Builders are for Java</title>
+        <pubDate>Tue, 25 Jul 2023 00:00:00 GMT</pubDate>
+        <guid>https://reneevandervelde.com/publications/expect-fun/builders-are-for-java.html</guid>
+        <link>https://reneevandervelde.com/publications/expect-fun/builders-are-for-java.html</link>
+        <description>
+            An exploration of when and how to use builder classes in Kotlin.
+        </description>
+    </item>
+    <item>
+        <title>Values and Enums in Kotlin</title>
         <pubDate>Sat, 10 Jul 2023 00:00:00 GMT</pubDate>
         <guid>https://reneevandervelde.com/publications/expect-fun/values-and-enums.html</guid>
         <link>https://reneevandervelde.com/publications/expect-fun/values-and-enums.html</link>

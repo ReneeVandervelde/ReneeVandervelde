@@ -1,45 +1,33 @@
-@import url("https://assets.inkapplications.com/css/main-v1.2.css");
+@import url("https://assets.inkapplications.com/css/main-v1.3.css");
 
+/* Template Overrides */
 :root 
 {
     --color-accent: #cc3366;
-}
-.ascii
-{
-    font-size: 1rem;
-    font-weight: 300;
 }
 body
 {
     padding-top: 1rem;
 }
-hr
+
+/* Homepage Widgets */
+.ascii
 {
-    width: 6rem;
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px dashed var(--color-foreground-subtle);
-    margin: 1rem auto;
-    padding: 0;
-}
-article > time
-{
-    font-style: italic;
-    color: var(--color-foreground-subtle);
+    font-size: 1rem;
+    font-weight: 300;
 }
 .emoji
 {
     font-size: 2rem;
     font-style: normal;
 }
-
 .sticker
 {
     max-width: 8rem;
     max-height: 10rem;
 }
 
+/* Columned Sections, used for sticker placement */
 .columned
 {
     display: flex;
@@ -60,20 +48,24 @@ article > time
     flex-grow: 1;
 }
 
-.footer
+/* Publications */
+hr
 {
-    margin: 1.5rem auto;
+    width: 6rem;
 }
-.footer,
+
+/* Page header/footers */
+body > footer,
 header > h1 > pre
 {
     text-align: center;
 }
-
 body > header > h1
 {
     font-size: 2rem;
-} 
+}
+
+/* info-specific subtitle */
 .subtitle-info
 {
     font-style: italic;
@@ -96,49 +88,19 @@ body > header > h1
 }
 
 @media print {
-    body
-    {
-        font-size: .8rem;
-        padding: 0;
-        margin: 0;
-    }
-    p
-    {
-        line-height: 1.3;
-        margin: 0;
-    }
-    h1, h2, h3
-    {
-        margin-bottom: .25rem;
-    }
-    .content-break
-    {
-        max-width: none;
-    }
-
     .subtitle-info
     {
         margin: .2em 0;
     }
-    body.sectioned > section
+    .emoji,
+    .sticker
     {
-        margin: 0;
-        margin-top: .5rem;
-        max-width: none;
-        padding: 0;
-        background-color: var(--color-background);
-    }
-    a
-    {
-        color: var(--color-foreground)
-    }
-    .emoji
-    {
-        display: none;
+        display: none!important;
     }
     .footer
     {
         margin: 0;
         margin-top: 1rem;
     }
+
 }

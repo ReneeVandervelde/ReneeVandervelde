@@ -7,9 +7,9 @@
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Values and Enums</title>
+    <title>Values and Enums in Kotlin</title>
 
-    <link rel="stylesheet" href="../../css/main-v7.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../css/main-v8.css" type="text/css" media="all">
     <link rel="alternate" type="application/rss+xml" title="Expect Fun" href="https://reneevandervelde.com/publications/expect-fun/rss.xml">
     <script src="https://assets.inkapplications.com/js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
@@ -19,7 +19,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="../../index.html">Home</a>
+                    <a href="../../index.html">Renee Vandervelde</a>
                 </li>
                 <li>
                     <a href="../index.html">Publications</a>
@@ -32,8 +32,8 @@
     </header>
     <article class="content-break">
         <header>
-            <h1>Values and Enums</h1>
-            <p>Published on <time datetime="2023-07-06">2023-07-10</time></p>
+            <h1>Values and Enums in Kotlin</h1>
+            <p>Published on <time datetime="2023-07-10">2023-07-10</time></p>
         </header>
         <p>
             A while back I
@@ -141,7 +141,8 @@ val example = when (lightType) {
         <p>
             We can construct a value structure similar to an enum:
         </p>
-<pre class="kotlin"><code>value class LightType private constructor(
+<pre class="kotlin"><code>@JvmInline
+value class LightType private constructor(
   private val type: String,
 ) {
   companion object {
