@@ -5,6 +5,12 @@
 {
     --color-accent: #cc3366;
 }
+@media (prefers-color-scheme: dark) {
+    :root
+    {
+        --color-accent: #cf6ea9;
+    }
+}
 body
 {
     padding-top: 1rem;
