@@ -1,3 +1,5 @@
 User-agent: *
 Disallow: /resume.html
 Sitemap: https://reneevandervelde.com/sitemap.txt
+Sitemap: https://reneevandervelde.com/publications/expect-fun/rss.xml
+Sitemap: https://reneevandervelde.com/publications/generically-typed/rss.xml
