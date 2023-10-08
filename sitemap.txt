@@ -1,0 +1,6 @@
+https://reneevandervelde.com/
+https://reneevandervelde.com/publications/index.html
+https://reneevandervelde.com/publications/expect-fun/builders-are-for-java.html
+https://reneevandervelde.com/publications/expect-fun/values-and-enums.html
+https://reneevandervelde.com/publications/generically-typed/fixing-firefox-sessionstore-startup.html
+https://reneevandervelde.com/publications/generically-typed/why-not-medium.html
