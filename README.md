@@ -1,6 +1,6 @@
 ### 👋 Hi! I'm Renee
 
-I'm an Engineer, Currently working [Bitkey] at [Block].
+I'm an Engineer, Currently working on [Bitkey] at [Block].
 
 This is my Personal GitHub, where I primarily focus on creating Kotlin
 Multiplatform tools. Most of my projects are located on the group page
