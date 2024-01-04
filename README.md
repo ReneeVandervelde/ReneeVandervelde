@@ -24,7 +24,7 @@ Here are some of my favorite projects:
    to use, but I spend a lot of time working on it.
 
 [Shade]: https://github.com/InkApplications/Shade
-[ACK]: https://github.com/InkApplication/Ack
+[ACK]: https://github.com/InkApplications/Ack
 [ACK-Android]: https://github.com/InkApplications/ack-android
 [Kimchi]: https://github.com/InkApplications/Kimchi
 [Usonia]: https://github.com/ReneeVandervelde/Usonia
