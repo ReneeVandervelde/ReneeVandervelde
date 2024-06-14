@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Renee Vandervelde, Blog">
+    <meta name="author" content="Renee Vandervelde">
+    <meta name="description" content="Feature flags in modern software development
+        carry with them some risky behavior. Used incorrectly, they can become 
+        problematic or even an anti-pattern within a project." />
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Feature Flags as an Anti-Pattern</title>
+
+    <link rel="stylesheet" href="../../css/main-v8.css" type="text/css" media="all">
+    <link rel="alternate" type="application/rss+xml" title="Generically Typed" href="https://reneevandervelde.com/publications/generically-typed/rss.xml">
+</head>
+<body>
+    <header class="content-break">
+        <nav>
+            <ul>
+                <li>
+                    <a href="../../index.html">Renee Vandervelde</a>
+                </li>
+                <li>
+                    <a href="../index.html">Publications</a>
+                </li>
+                <li>
+                    Generically Typed
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <article class="content-break">
+        <header>
+            <h1>Feature Flags as an Anti-Pattern</h1>
+            <!-- TODO -->
+            <p>Published on <time datetime="2023-07-10">2023-07-10</time></p>
+        </header>
+        <p>
+            In the last few years I've begun to recognize scenarios in which
+            feature flags have become a bad habit in projects. While there
+            are some good use cases for feature flags, I have found them to
+            be less useful in practice than the industry would seem to suggest.
+            At their worst, they can be outright harmful to a project.
+        </p>
+        <hr />
+        <h2>Feature Flags Maximize Work-In-Progress</h2>
+        <p>
+            The most problematic habit that I've seen develop in projects
+            using feature flags is using them as a way to covertly roll-over
+            work between development cycles.
+        </p>
+        <p>
+            Development cycles, such as Sprints, are a way to minimize the
+            amount of in-progress work that a team has. Their purpose is to
+            ensure that the application frequently hits milestones in which
+            the project is <em>shipable</em>. Until a feature is 
+            <em>actually</em> shipped to the customer, no value been delivered,
+            and the work is still accumulating unplanned work and technical
+            debt.
+        </p>
+        <p>
+            Feature Flags conveniently enable developers to side-step these
+            processes by 'shipping' code that is never actually used by 
+            customers. That is, until the day the feature flag is enabled
+            and months of work suddenly hit production at once. Problems 
+            quickly arise and bugs flood and slam your engineering team with
+            unplanned work, grinding your development velocity to a halt.
+        </p>
+        <p>
+            One of my biggest pet peeves in development processes is how
+            often teams are willing to <em>lie to themselves</em> about what
+            they're actually doing. People love to <em>say</em> that they're
+            an agile team, or that they work in a Scrum process. But, more
+            often than not, what they mean is they scheduled a stand-up 
+            meeting. Because, after all, that was the easiest part of the 
+            process. Agile development is <strong>hard</strong>, and it
+            requires discipline. Feature flags allow you to break that 
+            discipline. You're lying to yourself, this is a
+            <strong>waterfall</strong> process. Meeting every two weeks to
+            discuss how the project is going doesn't make your team agile.
+        </p>
+        <h2>Fearure Flags</h2>
+    </article>
+</body>
+</html>
