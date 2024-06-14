@@ -2,16 +2,19 @@
 <channel>
     <title>Generically Typed</title>
     <link>https://reneevandervelde.com/publications/index.html#generically-typed</link>
-    <description>A collection of my thoughts, in no particular order.</description>
+    <description>A collection of my thoughts on various topics.</description>
     <language>en-us</language>
     <item>
-        <title>Why Not Medium?</title>
-        <pubDate>Sat, 10 Jul 2023 00:00:00 GMT</pubDate>
-        <guid>https://reneevandervelde.com/publications/generically-typed/why-not-medium.html</guid>
-        <link>https://reneevandervelde.com/publications/generically-typed/why-not-medium.html</link>
+        <title>Feature Flags as an Anti-Pattern</title>
+        <pubDate>Fri, 14 Jun 2024 00:00:00 GMT</pubDate>
+        <guid>https://reneevandervelde.com/publications/generically-typed/feature-flags-antipattern.html</guid>
+        <link>https://reneevandervelde.com/publications/generically-typed/feature-flags-antipattern.html</link>
         <description>
-            An explanation of why I'm moving my articles to my own website,
-            rather than rely on a platform like Medium or Substack.
+            Over the years, I've begun to recognize scenarios in which
+            feature flags have become a bad habit in projects. While there
+            are some good use cases for feature flags, I have found them to
+            be less useful in practice than the industry would seem to suggest.
+            At their worst, they can be outright harmful to a project.
         </description>
     </item>
     <item>
@@ -24,6 +27,16 @@
             setting when the browser is closed for a restart. As someone
             who likes to start from a clean slate, this was frustrating
             me quite a bit. I decided to fix it the hard way.
+        </description>
+    </item>
+    <item>
+        <title>Why Not Medium?</title>
+        <pubDate>Sat, 10 Jul 2023 00:00:00 GMT</pubDate>
+        <guid>https://reneevandervelde.com/publications/generically-typed/why-not-medium.html</guid>
+        <link>https://reneevandervelde.com/publications/generically-typed/why-not-medium.html</link>
+        <description>
+            An explanation of why I'm moving my articles to my own website,
+            rather than rely on a platform like Medium or Substack.
         </description>
     </item>
 </channel>
