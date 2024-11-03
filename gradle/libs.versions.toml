@@ -1,8 +1,7 @@
 [versions]
 kotlin = "2.0.20"
 coroutines = "1.9.0"
-#ink-ui = "0.13.3"
-ink-ui = "SNAPSHOT"
+ink-ui = "0.14.0"
 
 [libraries.kotlin-gradle]
 version.ref = "kotlin"
