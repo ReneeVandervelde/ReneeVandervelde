@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+FAIL_GRADLE=11
+FAIL_RENDER=12
+FAIL_RESOURCE=13
+
+if command -v mdf &> /dev/null; then
+    PRINT_CMD="mdf"
+else
+    PRINT_CMD="echo"
+fi
+
+RENDER_ARGS=""
+COPY_ARGS=""
+
+for arg in "$@"; do
+    if [[ "$arg" == "--verbose" ]]; then
+        RENDER_ARGS="$RENDER_ARGS --verbose"
+        COPY_ARGS="$COPY_ARGS -v"
+        break
+    fi
+done
+
+# Clean outputs
+rm -rf build/output
+
+./gradlew --quiet ":cli:installDist" || exit $FAIL_GRADLE
+./cli/build/install/rv-cli/bin/rv-cli src/staticMain $RENDER_ARGS || exit $FAIL_RENDER
+
+$PRINT_CMD "> Copying resources"
+./gradlew extractResources --quiet || exit $FAIL_RESOURCE
+mkdir -p build/output/resources/css || exit $FAIL_RESOURCE
+mkdir -p build/output/resources/images || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn cli/build/output/resources/composeResources/com.inkapplications.ui.render_web_common.generated.resources/* build/output/resources/ || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn src/css/* build/output/resources/css/ || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn src/images/* build/output/resources/images/ || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn src/raw/* build/output/ || exit $FAIL_RESOURCE
+
+$PRINT_CMD "+ Render Complete"
+
+
+exit 0

@@ -1,0 +1,32 @@
+name: Pushes
+on:
+    push:
+        branches: [master]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - 
+                name: Checkout
+                uses: actions/checkout@v2.4.0
+            -
+                name: Configure Java
+                uses: actions/setup-java@v4.5.0
+                with:
+                    java-version: 17
+                    distribution: temurin
+            -
+                name: Render Static Site
+                run: bin/render
+            -
+                name: Check Output Links
+                run: |
+                    find build/output \( -name "*.html" -o -name "*.xml" \) -type f -exec sh -c 'echo "Checking links in file: $0"; bin/check_links "$0"' {} \;
+            -
+                name: Upload Pages Artifact
+                uses: actions/upload-pages-artifact@v3.0.1
+                with:
+                    path: build/output
+            -
+                name: Deploy to GitHub Pages
+                uses: actions/deploy-pages@v4.0.5

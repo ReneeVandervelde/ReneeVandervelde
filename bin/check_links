@@ -6,9 +6,16 @@ if [[ $1 == "" ]]; then
     echo "Usage: check_links FILE"
     exit 1
 fi
+
+if command -v mdf &> /dev/null; then
+    PRINT_CMD="mdf"
+else
+    PRINT_CMD="echo"
+fi
  
 html_file=$(realpath "$1")
 root_dir=$(dirname "$(realpath "$0")")/..
+outputs_dir=$root_dir/build/output
 html_dir=$(dirname "$html_file")
 domain=reneevandervelde.com
 
@@ -16,9 +23,9 @@ file_exists_locally() {
     local file="$1"
 
     if [ -f "$file" ] || [ -d "$file" ]; then
-        echo "+ Valid: $file"
+        $PRINT_CMD "+ Valid: $file"
     else
-        echo ">> Not Found: $file"
+        $PRINT_CMD ">> Not Found: $file"
         exit 1;
     fi
 }
@@ -27,25 +34,25 @@ check_link() {
     local link="$1"
 
     if [[ $link == mailto:* ]]; then
-        echo "> Skipping mailto link: $link"
+        $PRINT_CMD "> Skipping mailto link: $link"
     elif [[ $link == http* ]]; then
         if [[ $link = *$domain* ]]; then
-            local file_path="$root_dir/${link#*$domain/}"
-            file_exists_locally "$file_path"
+            local file_path="$outputs_dir/${link#*$domain/}"
+            file_exists_locally "$file_path" || exit 1
         else
             if [[ $link == *linkedin.com* ]]; then
                 # linkedin links return a 999 and I don't want to fucking deal with it.
-                echo "> skipping link: $link"
+                $PRINT_CMD "> skipping link: $link"
             elif curl --output /dev/null --silent --head --fail "$link"; then
-                echo "+ Valid $link"
+                $PRINT_CMD "+ Valid: $link"
             else
-                echo ">> Invalid: $link"
+                $PRINT_CMD ">> Invalid: $link"
                 exit 1;
             fi
         fi
     else
         local file_path="$html_dir/$link"
-        file_exists_locally "$file_path"
+        file_exists_locally "$file_path" || exit 1
     fi
 }
 
@@ -57,6 +64,11 @@ while IFS= read -r line; do
     done
 
     links=$(echo "$line" | grep -oE '<link>[^<]+</link>' | sed -E 's/<\/?link>//g' | sed -E 's/#.*$//')
+    for link in $links; do
+        check_link "$link"
+    done
+
+    links=$(echo "$line" | grep -oE '<loc>[^<]+</loc>' | sed -E 's/<\/?loc>//g' | sed -E 's/#.*$//')
     for link in $links; do
         check_link "$link"
     done
