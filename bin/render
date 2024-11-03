@@ -31,10 +31,10 @@ $PRINT_CMD "> Copying resources"
 ./gradlew extractResources --quiet || exit $FAIL_RESOURCE
 mkdir -p build/output/resources/css || exit $FAIL_RESOURCE
 mkdir -p build/output/resources/images || exit $FAIL_RESOURCE
-cp $COPY_ARGS -rn cli/build/output/resources/composeResources/com.inkapplications.ui.render_web_common.generated.resources/* build/output/resources/ || exit $FAIL_RESOURCE
-cp $COPY_ARGS -rn src/css/* build/output/resources/css/ || exit $FAIL_RESOURCE
-cp $COPY_ARGS -rn src/images/* build/output/resources/images/ || exit $FAIL_RESOURCE
-cp $COPY_ARGS -rn src/raw/* build/output/ || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn cli/build/output/resources/composeResources/com.inkapplications.ui.render_web_common.generated.resources/. build/output/resources/ || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn src/css/. build/output/resources/css/ || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn src/images/. build/output/resources/images/ || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn src/raw/. build/output/ || exit $FAIL_RESOURCE
 
 $PRINT_CMD "+ Render Complete"
 
