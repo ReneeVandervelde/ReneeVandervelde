@@ -14,6 +14,8 @@ internal val customRenderers = arrayOf(
     CitationLink.Renderer,
     ContentHeader.Renderer,
     FullHeader.Renderer,
+    Photo.Renderer,
+    PhotoThumbnail.Renderer,
     SideImage.Renderer,
 )
 internal val customImports = arrayOf(
@@ -26,6 +28,7 @@ internal val customImports = arrayOf(
     "com.reneevandervelde.rss.*",
     "com.reneevandervelde.sitemap.*",
     "com.reneevandervelde.absoluteUrl",
+    "com.reneevandervelde.htmlFileName",
     "com.reneevandervelde.breadcrumbs",
     "kotlinx.datetime.LocalDate",
 )

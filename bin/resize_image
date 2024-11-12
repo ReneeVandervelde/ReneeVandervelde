@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if command -v mdf &> /dev/null; then
+    PRINT_CMD="mdf"
+else
+    PRINT_CMD="echo"
+fi
+
+
+if [ -z "$1" ]; then
+  $PRINT_CMD ">>> Error: No input file provided."
+  $PRINT_CMD "> Usage: resize_image [file]"
+  exit 1
+fi
+
+if [ ! -f "$1" ]; then
+  $PRINT_CMD ">>> Error: File '$1' not found."
+  exit 1
+fi
+
+BASENAME=$(basename "$1")
+BASENAME=$(basename "$1" | sed 's/\.[^.]*$//')
+THUMB_OUTPUT="$HOME/Downloads/$BASENAME-thumbnail-480.jpg"
+FULL_OUTPUT="$HOME/Downloads/$BASENAME-resized-2048.jpg"
+
+convert "$1" -resize 480x -quality 70 -strip "$THUMB_OUTPUT"
+convert "$1" -resize 2048x -quality 80 -strip "$FULL_OUTPUT"
+
+$PRINT_CMD "+ Success"
