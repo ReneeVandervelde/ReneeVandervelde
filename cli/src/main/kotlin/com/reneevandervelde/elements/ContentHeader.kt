@@ -14,17 +14,15 @@ data class ContentHeader(
         override fun TagConsumer<*>.render(element: UiElement, parent: ElementRenderer): RenderResult {
             if (element !is ContentHeader) return RenderResult.Skipped
 
-            header {
-                h1 {
-                    +element.title
-                }
-                if (element.subtitle != null) {
-                    renderWith(
-                        element = element.subtitle,
-                        consumer = consumer,
-                        renderer = parent,
-                    )
-                }
+            h1 {
+                +element.title
+            }
+            if (element.subtitle != null) {
+                renderWith(
+                    element = element.subtitle,
+                    consumer = this,
+                    renderer = parent,
+                )
             }
 
             return RenderResult.Rendered

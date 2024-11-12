@@ -47,6 +47,17 @@ addBody(ScrollingListLayout(
             link("LinkedIn", "https://www.linkedin.com/in/reneevandervelde/")
         },
     ),
+    inline(
+        markdown("""
+            ## Photography
+
+            I take photos as a hobby.
+            I'm starting to upload them here, check it out!
+        """.trimIndent()),
+        LinkNavigation {
+            link("Photography", "photography/index.html")
+        }
+    ),
     SideImage(
         content = inline(
             TextElement("Security", style = TextStyle.H2),

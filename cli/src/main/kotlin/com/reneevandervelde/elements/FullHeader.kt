@@ -2,6 +2,7 @@ package com.reneevandervelde.elements
 
 import ink.ui.render.statichtml.renderer.renderer
 import ink.ui.structures.elements.UiElement
+import ink.ui.structures.layouts.FixedGridLayout
 import kotlinx.html.h1
 import kotlinx.html.pre
 
