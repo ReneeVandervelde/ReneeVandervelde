@@ -33,7 +33,11 @@ data class RssItem(
     val published: LocalDate,
     val absoluteLink: String,
     val fileName: String,
+    val image: String? = null,
 ) {
+    private val imageRss = if (image != null) """
+        <media:content url="$image" medium="image" />
+    """.trimIndent() else ""
     val rss = """
         <item>
             <title>$title</title>
@@ -41,6 +45,7 @@ data class RssItem(
             <guid>$absoluteLink</guid>
             <link>$absoluteLink</link>
             <description>${description.replace("\n", " ").trim()}</description>
+            $imageRss
         </item>
     """.trimIndent()
 }
@@ -56,7 +61,7 @@ data class RssFeed(
     val latestDate: LocalDate? = items.maxByOrNull { it.published }?.published
 
     val rss = """
-        <rss version="2.0">
+        <rss xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
             <channel>
                 <title>$title</title>
                 <description>$description</description>

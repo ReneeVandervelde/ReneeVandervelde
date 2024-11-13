@@ -89,6 +89,7 @@ fun InkUiScript.photo(
         published = published,
         absoluteLink = absoluteUrl(htmlFileName),
         fileName = htmlFileName,
+        image = thumbnail,
     )
 
     addSitemap(
