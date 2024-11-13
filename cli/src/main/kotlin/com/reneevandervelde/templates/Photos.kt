@@ -15,6 +15,7 @@ import ink.ui.structures.GroupingStyle
 import ink.ui.structures.elements.BreadcrumbElement
 import ink.ui.structures.layouts.ScrollingListLayout
 import kotlinx.datetime.LocalDate
+import kotlinx.html.meta
 import java.io.File
 
 
@@ -105,6 +106,10 @@ fun InkUiScript.photo(
             text(title)
         }
     )
+
+    addHead {
+      meta(name = "og:image", content = thumbnail)
+    }
 
     addBody(
         ScrollingListLayout(
