@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+DIR_BIN="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR_PROJECT="$DIR_BIN/.."
+DIR_BUILD="$DIR_PROJECT/build"
+
+if command -v mdf &> /dev/null; then
+    PRINT_CMD="mdf"
+else
+    PRINT_CMD="echo"
+fi
+
+"$DIR_BIN/gradlew" clean --quiet || exit 1
+rm -rfv "$DIR_PROJECT/build" || exit 2
+
+$PRINT_CMD "+ Clean Complete"
