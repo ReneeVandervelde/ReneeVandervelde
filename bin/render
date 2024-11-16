@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+DIR_BIN="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR_PROJECT="$DIR_BIN/.."
+DIR_BUILD="$DIR_PROJECT/build"
+DIR_OUTPUTS="$DIR_BUILD/output"
+
 FAIL_GRADLE=11
 FAIL_RENDER=12
 FAIL_RESOURCE=13
@@ -22,21 +27,20 @@ for arg in "$@"; do
 done
 
 # Clean outputs
-rm -rf build/output
+rm -rf "$DIR_OUTPUTS"
 
-./gradlew --quiet ":cli:installDist" || exit $FAIL_GRADLE
-./cli/build/install/rv-cli/bin/rv-cli src/staticMain $RENDER_ARGS || exit $FAIL_RENDER
+"$DIR_BIN/gradlew" --quiet ":cli:installDist" || exit $FAIL_GRADLE
+"$DIR_PROJECT/cli/build/install/rv-cli/bin/rv-cli" "$DIR_PROJECT/src/staticMain" $RENDER_ARGS || exit $FAIL_RENDER
 
 $PRINT_CMD "> Copying resources"
-./gradlew extractResources --quiet || exit $FAIL_RESOURCE
-mkdir -p build/output/resources/css || exit $FAIL_RESOURCE
-mkdir -p build/output/resources/images || exit $FAIL_RESOURCE
-cp $COPY_ARGS -rn cli/build/output/resources/composeResources/com.inkapplications.ui.render_web_common.generated.resources/. build/output/resources/ || exit $FAIL_RESOURCE
-cp $COPY_ARGS -rn src/css/. build/output/resources/css/ || exit $FAIL_RESOURCE
-cp $COPY_ARGS -rn src/images/. build/output/resources/images/ || exit $FAIL_RESOURCE
-cp $COPY_ARGS -rn src/raw/. build/output/ || exit $FAIL_RESOURCE
+"$DIR_BIN/gradlew" extractResources --quiet || exit $FAIL_RESOURCE
+mkdir -p "$DIR_OUTPUTS/resources/css" || exit $FAIL_RESOURCE
+mkdir -p "$DIR_OUTPUTS/resources/images" || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn "$DIR_PROJECT/cli/build/output/resources/composeResources/com.inkapplications.ui.render_web_common.generated.resources/." "$DIR_OUTPUTS/resources/" || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn "$DIR_PROJECT/src/css/." "$DIR_OUTPUTS/resources/css/" || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn "$DIR_PROJECT/src/images/." "$DIR_OUTPUTS/resources/images/" || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn "$DIR_PROJECT/src/raw/." "$DIR_OUTPUTS" || exit $FAIL_RESOURCE
 
 $PRINT_CMD "+ Render Complete"
-
 
 exit 0
