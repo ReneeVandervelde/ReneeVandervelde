@@ -9,7 +9,7 @@ for [@InkApplications]
 
 You can learn more about me on [my website][website]!
 
-[website]: https://ReneeVandervelde
+[website]: https://ReneeVandervelde.com
 [Bitkey]: https://bitkey.build
 [Block]: https://block.xyz
 [@InkApplications]: https://github.com/InkApplications
