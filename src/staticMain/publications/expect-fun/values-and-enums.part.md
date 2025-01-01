@@ -41,7 +41,7 @@ to passing the pre-defined constants in, we could also pass
 features much of the time.
 
 Though Android has addressed some of these deficiencies with annotations
-such as ``@IntDef`, not all platforms are targeting Android and will rely
+such as `@IntDef`, not all platforms are targeting Android and will rely
 on these. In particular, Kotlin Multiplatform projects often won't include
 these.
 
