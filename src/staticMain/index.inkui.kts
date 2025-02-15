@@ -40,7 +40,7 @@ addBody(ScrollingListLayout(
             
             I've been making software professionally for over 15 years.
             
-            I'm currently building [BitKey](https://wallet.build) at [Block](https://block.xyz) (aka Square)
+            I'm currently building [BitKey](https://bitkey.build) at [Block](https://block.xyz) (aka Square)
         """.trimIndent()),
         LinkNavigation {
             link("My Resume", "resume.html")
