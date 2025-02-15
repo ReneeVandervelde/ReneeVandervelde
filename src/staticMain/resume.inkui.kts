@@ -7,7 +7,7 @@ addPageHeader(
         Renee Vandervelde
         =================
         
-        Contact: [hello@reneevandervelde.com](mailto:hello@reneevandervelde.com)
+        Contact: [renee@reneevandervelde.com](mailto:renee@reneevandervelde.com)
 
         Hello! I’m an engineer with 15 years of experience.\
         I am passionate about **Android** and **Kotlin Multiplatform**,

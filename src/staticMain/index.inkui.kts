@@ -89,12 +89,11 @@ addBody(ScrollingListLayout(
     SideImage(
         content = markdown("""
             ## Ham Radio
-            I'm an amateur radio technician: `KE0YOG`
+            I'm an amateur radio technician.
     
             I occasionally monitor Minnesota DMR Channels and Repeaters in the Northeast Minneapolis area.
     
             Primarily, I work with APRS, and am building a packet parser.
-        
         """.trimIndent()),
         image = resource("images/stickers/radio.png"),
     ),
@@ -102,7 +101,7 @@ addBody(ScrollingListLayout(
         TextElement("Contact", style = TextStyle.H2),
         FormattedText {
             text("You can reach me at ")
-            link(url = "mailto:hello@reneevandervelde.com") {
+            link(url = "mailto:renee@reneevandervelde.com") {
                 text("renee@reneevandervelde.com")
             }
             text(".")
