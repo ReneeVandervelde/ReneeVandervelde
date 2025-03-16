@@ -46,15 +46,26 @@ footer ul
 }
 
 /* Publications */
-section article
+section article.article-index header
 {
-    border: 1px solid var(--color-foreground-subtle);
-    border-radius: var(--corner-radius);
-    padding: var(--item-surround-spacing);
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }
-section article h2
+section article.article-index > header > a:has(h2)
+{
+    display: inline;
+    flex: 1;
+    padding-left: .5rem;
+}
+section article.article-index > header > a > h2
 {
     font-size: 1.2rem;
+    margin: 0;
+}
+section article.article-index > header > *
+{
+    display: inline-block;
 }
 
 /* Columned Sections, used for sticker placement */
