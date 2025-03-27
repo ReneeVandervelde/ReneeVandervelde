@@ -1,5 +1,6 @@
 article.photo-thumbnail
 {
+    padding: var(--item-surround-spacing);
     border-radius: 2px;
     background-color: #ffffff;
     color: #212121;
