@@ -9,7 +9,7 @@ addPageHeader(
         
         Contact: [renee@reneevandervelde.com](mailto:renee@reneevandervelde.com)
 
-        Hello! I’m an engineer with 15 years of experience.\
+        Hello! I’m an engineer with over 15 years of experience.\
         I am passionate about **Android** and **Kotlin Multiplatform**,
         as well as establishing improved agile processes that help teams
         deliver applications.
@@ -26,7 +26,7 @@ addBody(
         markdown("""
             Block
             -----
-            **Software Engineer**, 2023—present
+            **Staff Software Engineer**, 2023—present
             
             Building a mobile hardware wallet that implements key management 
             and recovery tools with a focus on usability while maintaining
