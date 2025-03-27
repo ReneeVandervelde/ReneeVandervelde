@@ -32,7 +32,7 @@ data class RssItem(
     val description: String,
     val published: LocalDate,
     val absoluteLink: String,
-    val fileName: String,
+    val fileName: String? = null,
     val image: String? = null,
 ) {
     private val imageRss = if (image != null) """
