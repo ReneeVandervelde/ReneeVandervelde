@@ -12,6 +12,7 @@ data class ArticleListing(
     val description: String,
     val link: String,
     val published: LocalDate,
+    val externalDomain: String? = null,
 ): UiElement.Static {
     object Renderer: ElementRenderer {
         override fun TagConsumer<*>.render(element: UiElement, parent: ElementRenderer): RenderResult {
@@ -19,6 +20,11 @@ data class ArticleListing(
 
             article("article-index") {
                 header {
+                    if (element.externalDomain != null) {
+                        span("external-label") {
+                            +"(${element.externalDomain})"
+                        }
+                    }
                     a(href = element.link) {
                         h2 {
                             +element.title
@@ -39,6 +45,9 @@ data class ArticleListing(
 fun ArticleListing(rssItem: RssItem, baseUrl: String) = ArticleListing(
     title = rssItem.title,
     description = rssItem.description,
-    link = "$baseUrl/${rssItem.fileName}",
+    link = rssItem.fileName?.let { "$baseUrl/$it" } ?: rssItem.absoluteLink,
     published = rssItem.published,
+    externalDomain = if (rssItem.fileName == null) rssItem.absoluteLink.domain else null,
 )
+
+private val String.domain: String? get() = Regex("""https?://([^/]+)""").find(this)?.groupValues?.get(1)

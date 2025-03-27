@@ -102,7 +102,9 @@ internal object Render : CliktCommand() {
 //                    val renderTime = measureTime {
                         debug("Rendering: ${file.path}")
                         val evaluation = evalScript(file)
-                        renderHtml(evaluation, file, renderOutput)
+                        if (!evaluation.hidePage) {
+                            renderHtml(evaluation, file, renderOutput)
+                        }
                         evaluation.rssFeeds.forEach { feed ->
                             renderRss(feed, file, renderOutput)
                         }
