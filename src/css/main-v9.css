@@ -71,6 +71,11 @@ section article.article-index > header > *
 {
     display: inline-block;
 }
+section article.article-index > header > time,
+section article.article-index > header > .external-label
+{
+    flex-shrink: 0;
+}
 
 /* Columned Sections, used for sticker placement */
 .columned
