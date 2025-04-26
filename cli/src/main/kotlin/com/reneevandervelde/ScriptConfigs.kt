@@ -17,6 +17,7 @@ internal val customRenderers = arrayOf(
     Photo.Renderer,
     PhotoThumbnail.Renderer,
     SideImage.Renderer,
+    ArticleImage.Renderer,
 )
 internal val customImports = arrayOf(
     "com.reneevandervelde.elements.*",

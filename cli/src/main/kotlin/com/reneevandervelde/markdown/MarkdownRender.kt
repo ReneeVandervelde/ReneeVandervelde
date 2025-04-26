@@ -1,5 +1,6 @@
 package com.reneevandervelde.markdown
 
+import com.reneevandervelde.elements.ArticleImage
 import com.reneevandervelde.elements.CitationLink
 import ink.ui.render.statichtml.InkUiScript
 import ink.ui.render.web.elements.CodeBlock
@@ -7,6 +8,7 @@ import ink.ui.structures.GroupingStyle
 import ink.ui.structures.TextStyle
 import ink.ui.structures.elements.*
 import org.intellij.markdown.MarkdownElementType
+import org.intellij.markdown.MarkdownElementTypes
 import org.intellij.markdown.MarkdownElementTypes.ATX_1
 import org.intellij.markdown.MarkdownElementTypes.ATX_2
 import org.intellij.markdown.MarkdownElementTypes.ATX_3
@@ -14,6 +16,7 @@ import org.intellij.markdown.MarkdownElementTypes.CODE_FENCE
 import org.intellij.markdown.MarkdownElementTypes.CODE_SPAN
 import org.intellij.markdown.MarkdownElementTypes.EMPH
 import org.intellij.markdown.MarkdownElementTypes.FULL_REFERENCE_LINK
+import org.intellij.markdown.MarkdownElementTypes.IMAGE
 import org.intellij.markdown.MarkdownElementTypes.INLINE_LINK
 import org.intellij.markdown.MarkdownElementTypes.LINK_DEFINITION
 import org.intellij.markdown.MarkdownElementTypes.LINK_DESTINATION
@@ -118,7 +121,24 @@ private fun renderNode(
         ATX_2, SETEXT_2 -> TextElement(getContent(text, node), style = TextStyle.H2)
         ATX_3 -> TextElement(getContent(text, node), style = TextStyle.H3)
         HORIZONTAL_RULE -> DividerElement
-        PARAGRAPH -> renderFormattedText(text, node)
+        PARAGRAPH -> {
+            val images = node.children
+                .filter { it.type == IMAGE }
+                .mapNotNull { it.findChildOfType(INLINE_LINK) }
+                .map {
+                    ArticleImage(
+                        image = it.findChildOfType(LINK_DESTINATION)!!.getTextInNode(text).toString(),
+                        altText = it.findChildOfType(LINK_TEXT)!!.findChildOfType(TEXT)!!.getTextInNode(text).toString(),
+                    )
+                }
+                .toTypedArray()
+            val text = renderFormattedText(text, node)
+
+            inline(
+                *images,
+                text
+            )
+        }
         CODE_FENCE -> CodeBlock(
             code = node.getCodeContent(text),
             language = node.findChildOfType(FENCE_LANG)?.getTextInNode(text)?.toString()?.let { CodeBlock.Language(it) }
@@ -210,7 +230,7 @@ private fun renderFormattedText(text: String, node: ASTNode): FormattedText {
 
 private fun FormattedText.Builder.buildText(text: String, node: ASTNode) {
     when (val type = node.type) {
-        MarkdownTokenTypes.EMPH -> return
+        MarkdownTokenTypes.EMPH, IMAGE -> return
         STRONG -> strong {
             node.children.forEach {
                 buildText(text, it)

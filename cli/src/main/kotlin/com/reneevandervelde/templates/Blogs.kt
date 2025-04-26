@@ -40,11 +40,12 @@ fun InkUiScript.markdownBlog(
     keywords: List<String>,
     published: LocalDate,
     updated: LocalDate? = null,
+    debug: Boolean = false,
 ) = blog(
     title = extractFirstMarkdownH1(fileName),
     description = description,
     keywords = keywords,
-    body = markdownFile(fileName, includeCitations = true, excludeFirstH1 = true),
+    body = markdownFile(fileName, includeCitations = true, excludeFirstH1 = true, debug = debug),
     published = published,
     updated = updated,
 )
