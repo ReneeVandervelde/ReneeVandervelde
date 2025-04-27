@@ -77,6 +77,34 @@ section article.article-index > header > .external-label
     flex-shrink: 0;
 }
 
+@media (max-width: 840px) {
+    section article.article-index header
+    {
+        flex-direction: column;
+        align-items: start;
+
+    }
+
+    section article.article-index > header > .external-label
+    {
+        order: 1;
+    }
+    section article.article-index header time
+    {
+        order: 2;
+    }
+    section article.article-index > header > a:has(h2)
+    {
+        order: 3
+    }
+
+    section article.article-index > header > a:has(h2),
+    section article.article-index > header > .external-label
+    {
+        padding-left: 0;
+    }
+}
+
 /* Columned Sections, used for sticker placement */
 .columned
 {
