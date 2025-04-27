@@ -22,7 +22,7 @@ data class ArticleListing(
                 header {
                     if (element.externalDomain != null) {
                         span("external-label") {
-                            +"(${element.externalDomain})"
+                            +"\uD83D\uDD17 via ${element.externalDomain}"
                         }
                     }
                     a(href = element.link) {
