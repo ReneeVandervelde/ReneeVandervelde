@@ -30,8 +30,8 @@ addBody(ScrollingListLayout(
             I am primarily focused on **Kotlin Multiplatform** development.
         """.trimIndent()),
         LinkNavigation {
-            link("Github", "https://github.com/ReneeVandervelde")
             link("Publications", "publications/index.html")
+            link("\uD83D\uDD17 GitHub", "https://github.com/ReneeVandervelde")
         },
     ),
     inline(
@@ -44,7 +44,7 @@ addBody(ScrollingListLayout(
         """.trimIndent()),
         LinkNavigation {
             link("My Resume", "resume.html")
-            link("LinkedIn", "https://www.linkedin.com/in/reneevandervelde/")
+            link("\uD83D\uDD17 LinkedIn", "https://www.linkedin.com/in/reneevandervelde/")
         },
     ),
     inline(
