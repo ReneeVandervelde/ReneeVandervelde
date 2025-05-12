@@ -1,7 +1,7 @@
 [versions]
 kotlin = "2.1.10"
 coroutines = "1.10.1"
-ink-ui = "1.1.0"
+ink-ui = "1.2.0"
 
 [libraries.kotlin-gradle]
 version.ref = "kotlin"
