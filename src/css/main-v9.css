@@ -61,6 +61,7 @@ section article.article-index > header > a:has(h2)
 section article.article-index > header > .external-label
 {
     padding-left: .5rem;
+    line-height: 1.5rem;
 }
 section article.article-index > header > a > h2
 {

@@ -50,4 +50,4 @@ fun ArticleListing(rssItem: RssItem, baseUrl: String) = ArticleListing(
     externalDomain = if (rssItem.fileName == null) rssItem.absoluteLink.domain else null,
 )
 
-private val String.domain: String? get() = Regex("""https?://([^/]+)""").find(this)?.groupValues?.get(1)
+private val String.domain: String? get() = Regex("""https?://(?:[^./]+\.)?([^/]+\.[^./]+)""").find(this)?.groupValues?.get(1)
