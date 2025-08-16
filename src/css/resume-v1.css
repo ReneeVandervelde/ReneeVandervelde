@@ -1,0 +1,29 @@
+ul
+{
+    margin: 0;
+}
+ul > li
+{
+    position: relative;
+    padding-left: 1.5rem;
+}
+ul > li::before
+{
+    content: "‣";
+    color: var(--color-foreground-subtle);
+    position: absolute;
+    left: 0;
+    width: 1rem;
+    text-align: center;
+}
+hr
+{
+    margin-top: .2rem;
+}
+@media print
+{
+    h2
+    {
+        font-size: 1.1rem;
+    }
+}
