@@ -27,7 +27,7 @@ jobs:
                     find build/output \( -name "*.html" -o -name "*.xml" \) -type f -exec sh -c 'echo "Checking links in file: $0"; bin/check_links "$0"' {} \;
             -
                 name: Upload Pages Artifact
-                uses: actions/upload-pages-artifact@v3.0.1
+                uses: actions/upload-pages-artifact@v4.0.0
                 with:
                     path: build/output
             -
