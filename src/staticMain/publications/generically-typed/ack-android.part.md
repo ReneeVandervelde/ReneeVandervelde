@@ -13,7 +13,7 @@ a user friendly mobile app for receiving and transmitting APRS data.
 
 ----------
 
-![ack-aprs-android](file:///var/home/renee/Code/ReneeVandervelde/build/output/resources/images/publications/ack-android/ack-header-screenshot.jpg)
+![ack-aprs-android](/resources/images/publications/ack-android/ack-header-screenshot.jpg)
 
 Features
 --------
