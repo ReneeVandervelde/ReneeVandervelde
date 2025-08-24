@@ -1,0 +1,8 @@
+
+article img
+{
+    max-width: 80%;
+    max-height: 512px;
+    margin: 1rem auto;
+    display: block;
+}
