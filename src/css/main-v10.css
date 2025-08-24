@@ -49,19 +49,23 @@ footer ul
 section article.article-index header
 {
     display: flex;
-    flex-direction: row-reverse;
     align-items: center;
     justify-content: start;
+    flex-wrap: wrap;
 }
 section article.article-index > header > a:has(h2)
 {
     display: inline;
     padding-left: .5rem;
+    order: 3;
+    flex-basis: 100%;
 }
 section article.article-index > header > .external-label
 {
-    padding-left: .5rem;
     line-height: 1.5rem;
+    text-style: italic;
+    margin-left: 1rem;
+    order: 2;
 }
 section article.article-index > header > a > h2
 {
@@ -78,32 +82,14 @@ section article.article-index > header > .external-label
     flex-shrink: 0;
 }
 
-@media (max-width: 840px) {
-    section article.article-index header
-    {
-        flex-direction: column;
-        align-items: start;
+section article.article-index header time
+{
+    order: 1;
+}
 
-    }
-
-    section article.article-index > header > .external-label
-    {
-        order: 1;
-    }
-    section article.article-index header time
-    {
-        order: 2;
-    }
-    section article.article-index > header > a:has(h2)
-    {
-        order: 3
-    }
-
-    section article.article-index > header > a:has(h2),
-    section article.article-index > header > .external-label
-    {
-        padding-left: 0;
-    }
+section article.article-index > header > a:has(h2)
+{
+    padding-left: 0;
 }
 
 /* Columned Sections, used for sticker placement */
@@ -133,6 +119,10 @@ section > *.columned > *.content > :first-child
 }
 
 /* Page header/footers */
+body > header p
+{
+    text-align: center;
+}
 body > footer,
 h1.logo > pre
 {

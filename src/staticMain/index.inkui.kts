@@ -8,18 +8,22 @@ addSitemap(
 addPageHeader(
     inline(
         FullHeader,
-        SideImage(
-            content = markdown("""
-                Howdy! I'm an Engineer at [Block] Photographer and friend of Open Source Software.
-
-                Currently thriving in Minneapolis, MN.
-
-                [Block]: https://block.xyz/
-            """.trimIndent()),
-            image = resource("images/stickers/hi.png"),
-            retain = true,
-        ),
+        TextElement("Software Engineer, Photographer, and Friend of Open Source Software"),
     )
+)
+
+val genericallyTypedFeed = renderRssFeed(
+    title = "Generically Typed",
+    description = "A collection of my thoughts on various topics.",
+    directory = "publications/generically-typed",
+    link = absoluteUrl("publications/index.html#generically-typed"),
+)
+
+val expectFunFeed = renderRssFeed(
+    title = "Expect Fun",
+    description = "A series on Kotlin development, with a focus on multiplatform applications.",
+    directory = "publications/expect-fun",
+    link = absoluteUrl("publications/index.html#expect-fun"),
 )
 
 addBody(ScrollingListLayout(
@@ -27,24 +31,32 @@ addBody(ScrollingListLayout(
         markdown("""
             ## Software
             
+            I've been making software professionally for over 15 years.
+
             I am primarily focused on **Kotlin Multiplatform** development.
+
+            I'm currently building [BitKey](https://bitkey.build) at [Block](https://block.xyz) (dba. Square, Cash App)
         """.trimIndent()),
         LinkNavigation {
-            link("Publications", "publications/index.html")
             link("\uD83D\uDD17 GitHub", "https://github.com/ReneeVandervelde")
+            link("\uD83D\uDD17 LinkedIn", "https://www.linkedin.com/in/reneevandervelde/")
+            link("\uD83D\uDCDC My Resume", "resume.html")
         },
     ),
     inline(
-        markdown("""
-            ## Professional Work
-            
-            I've been making software professionally for over 15 years.
-            
-            I'm currently building [BitKey](https://bitkey.build) at [Block](https://block.xyz) (aka Square)
-        """.trimIndent()),
+        TextElement("Recent Writing", style = TextStyle.H2),
+
+        *genericallyTypedFeed.items
+            .map { item -> ArticleListing(item, "publications/generically-typed") }
+            .plus(
+                expectFunFeed.items.map { item -> ArticleListing(item, "publications/expect-fun") }
+            )
+            .sortedByDescending { it.published }
+            .take(10)
+            .toTypedArray(),
+
         LinkNavigation {
-            link("My Resume", "resume.html")
-            link("\uD83D\uDD17 LinkedIn", "https://www.linkedin.com/in/reneevandervelde/")
+            link("\uD83D\uDCF0 All Publications", "publications/index.html")
         },
     ),
     inline(
@@ -55,56 +67,38 @@ addBody(ScrollingListLayout(
             I'm starting to upload them here, check it out!
         """.trimIndent()),
         LinkNavigation {
-            link("Photography", "photography/index.html")
+            link("\uD83D\uDCF7 Photography", "photography/index.html")
         }
-    ),
-    SideImage(
-        content = inline(
-            TextElement("Security", style = TextStyle.H2),
-            TextElement("My PGP Fingerprint is:"),
-            FormattedText {
-                code(group = true) {
-                    text("F4F0")
-                    text("FCBA")
-                    text("19C3")
-                    text("71E2")
-                    text("FFD0")
-                    text("8CB6")
-                    text("2BDD")
-                    text("0590")
-                    text("E081")
-                    text("F37C")
-                }
-            },
-            LinkNavigation {
-                link("Download Full Key", "pgp-ReneeVandervelde.asc")
-            },
-        ),
-        image = resource("images/stickers/foilhat.png"),
-    ),
-    inline(
-        TextElement("Social Media", style = TextStyle.H2),
-        TextElement("I do not currently use social media."),
-    ),
-    SideImage(
-        content = markdown("""
-            ## Ham Radio
-            I'm an amateur radio technician.
-    
-            I occasionally monitor Minnesota DMR Channels and Repeaters in the Northeast Minneapolis area.
-    
-            Primarily, I work with APRS, and am building a packet parser.
-        """.trimIndent()),
-        image = resource("images/stickers/radio.png"),
     ),
     inline(
         TextElement("Contact", style = TextStyle.H2),
+        TextElement("Social Media", style = TextStyle.H3),
+        TextElement("I do not use any social media."),
+        TextElement("E-Mail", style = TextStyle.H3),
         FormattedText {
             text("You can reach me at ")
             link(url = "mailto:renee@reneevandervelde.com") {
                 text("renee@reneevandervelde.com")
             }
-            text(".")
+        },
+        TextElement("Security", style = TextStyle.H3),
+        TextElement("My PGP Fingerprint is:"),
+        FormattedText {
+            code(group = true) {
+                text("F4F0")
+                text("FCBA")
+                text("19C3")
+                text("71E2")
+                text("FFD0")
+                text("8CB6")
+                text("2BDD")
+                text("0590")
+                text("E081")
+                text("F37C")
+            }
+        },
+        LinkNavigation {
+            link("\uD83D\uDD11 Full PGP Key", "pgp-ReneeVandervelde.asc")
         },
     ),
     groupingStyle = GroupingStyle.Sections,

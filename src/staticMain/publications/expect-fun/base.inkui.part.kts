@@ -1,5 +1,5 @@
 resourceBaseUrl = "../../resources"
-addStyle(resource("css/main-v9.css"))
+addStyle(resource("css/main-v10.css"))
 addStyle(resource("css/articles-v1.css"))
 
 addPageHeader(BreadcrumbElement {
