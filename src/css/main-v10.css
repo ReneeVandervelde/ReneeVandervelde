@@ -87,6 +87,14 @@ section article.article-index header time
     order: 1;
 }
 
+article img
+{
+    max-width: 80%;
+    max-height: 512px;
+    margin: 1rem auto;
+    display: block;
+}
+
 section article.article-index > header > a:has(h2)
 {
     padding-left: 0;
