@@ -1,5 +1,5 @@
 resourceBaseUrl = "../resources"
-addStyle(resource("css/main-v9.css"))
+addStyle(resource("css/main-v10.css"))
 meta.robots = "index, follow"
 page.title = "Publications by Renee Vandervelde"
 
