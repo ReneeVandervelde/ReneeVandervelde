@@ -29,17 +29,19 @@ done
 # Clean outputs
 rm -rf "$DIR_OUTPUTS"
 
-"$DIR_BIN/gradlew" --quiet ":cli:installDist" || exit $FAIL_GRADLE
-"$DIR_PROJECT/cli/build/install/rv-cli/bin/rv-cli" "$DIR_PROJECT/src/staticMain" $RENDER_ARGS || exit $FAIL_RENDER
+"$DIR_BIN/gradlew" --quiet :cli:installDist :urldecrypt:jsBrowserDistribution || exit $FAIL_GRADLE
+"$DIR_PROJECT/cli/build/install/rv-cli/bin/rv-cli" render "$DIR_PROJECT/src/staticMain" $RENDER_ARGS || exit $FAIL_RENDER
 
 $PRINT_CMD "> Copying resources"
 "$DIR_BIN/gradlew" extractResources --quiet || exit $FAIL_RESOURCE
 mkdir -p "$DIR_OUTPUTS/resources/css" || exit $FAIL_RESOURCE
 mkdir -p "$DIR_OUTPUTS/resources/images" || exit $FAIL_RESOURCE
+mkdir -p "$DIR_OUTPUTS/resources/js" || exit $FAIL_RESOURCE
 cp $COPY_ARGS -rn "$DIR_PROJECT/cli/build/output/resources/composeResources/com.inkapplications.ui.render_web_common.generated.resources/." "$DIR_OUTPUTS/resources/" || exit $FAIL_RESOURCE
 cp $COPY_ARGS -rn "$DIR_PROJECT/src/css/." "$DIR_OUTPUTS/resources/css/" || exit $FAIL_RESOURCE
 cp $COPY_ARGS -rn "$DIR_PROJECT/src/images/." "$DIR_OUTPUTS/resources/images/" || exit $FAIL_RESOURCE
 cp $COPY_ARGS -rn "$DIR_PROJECT/src/raw/." "$DIR_OUTPUTS" || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn "$DIR_PROJECT/urldecrypt/build/dist/js/productionExecutable/." "$DIR_OUTPUTS/resources/js" || exit $FAIL_RESOURCE
 
 $PRINT_CMD "+ Render Complete"
 

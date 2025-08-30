@@ -1,0 +1,53 @@
+body > *
+{
+    display: none;
+}
+body > header:has(.encryption-status)
+{
+    display: block;
+}
+
+body > header > .encryption-status
+{
+    border: 1px solid var(--color-caution);
+    border-radius: var(--corner-radius);
+    padding: 2rem;
+}
+.encryption-status *:first-child
+{
+    margin-top: 0;
+}
+.encryption-status *:last-child
+{
+    margin-bottom: 0;
+}
+
+body > header > .encryption-status > p.failure,
+body.encryption-failure > header > .encryption-status > p.initial
+{
+    display: none;
+}
+body.encryption-failure > header > .encryption-status > p.failure,
+body > header > .encryption-status > p.initial
+{
+    display: block;
+}
+
+.encryption-status h1
+{
+    font-size: 1.5rem;
+}
+
+.encryption-status p
+{
+    text-align: left;
+}
+
+body.decrypted > header > .encryption-status
+{
+    display: none;
+}
+body.decrypted > *
+{
+    display: initial;
+}

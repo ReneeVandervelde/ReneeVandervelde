@@ -21,6 +21,7 @@ dependencies {
     implementation(libs.jetbrains.markdown)
     implementation(libs.kotlinx.datetime)
     implementation(libs.ink.ui.statichtml)
+    implementation(libs.slf4j.shutthefuckup)
     "extractResources"(libs.ink.ui.webcommon)
 }
 

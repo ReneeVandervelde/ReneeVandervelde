@@ -13,3 +13,12 @@ internal var InkUiScript.hidePage: Boolean
             hiddenPages.remove(this)
         }
     }
+
+fun InkUiScript.addScript(script: String)
+{
+    val field = this::class.java.superclass.getDeclaredField("scripts")
+    field.isAccessible = true
+    val scripts = field.get(this) as MutableList<String>
+
+    scripts.add(script)
+}

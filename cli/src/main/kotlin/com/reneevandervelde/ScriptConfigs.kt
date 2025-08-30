@@ -1,6 +1,7 @@
 package com.reneevandervelde
 
 import com.reneevandervelde.elements.*
+import com.reneevandervelde.elements.EncryptionHeader
 import ink.ui.render.statichtml.InkUiScript
 import java.io.File
 import kotlin.script.experimental.api.ResultValue
@@ -13,6 +14,7 @@ internal val customRenderers = arrayOf(
     ArticleListing.Renderer,
     CitationLink.Renderer,
     ContentHeader.Renderer,
+    EncryptionHeader.Renderer,
     FullHeader.Renderer,
     Photo.Renderer,
     PhotoThumbnail.Renderer,
@@ -21,6 +23,7 @@ internal val customRenderers = arrayOf(
 )
 internal val customImports = arrayOf(
     "com.reneevandervelde.elements.*",
+    "com.reneevandervelde.encryption.useEncryption",
     "com.reneevandervelde.templates.*",
     "com.reneevandervelde.markdown.markdown",
     "com.reneevandervelde.markdown.markdownFile",
@@ -32,6 +35,7 @@ internal val customImports = arrayOf(
     "com.reneevandervelde.htmlFileName",
     "com.reneevandervelde.breadcrumbs",
     "kotlinx.datetime.LocalDate",
+    "com.reneevandervelde.addScript", // TODO: Remove when merged into UI toolkit
 )
 
 internal fun evalScript(file: File): InkUiScript {
