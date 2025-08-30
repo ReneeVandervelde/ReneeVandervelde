@@ -62,3 +62,7 @@ module = "com.inkapplications.ui:render-web-common"
 [libraries.libsodium]
 version = "0.9.2"
 module = "com.ionspin.kotlin:multiplatform-crypto-libsodium-bindings"
+
+[libraries.slf4j-shutthefuckup]
+version = "2.0.13"
+module = "org.slf4j:slf4j-nop"
