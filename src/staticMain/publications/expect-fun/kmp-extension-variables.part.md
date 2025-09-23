@@ -49,7 +49,7 @@ like in a map associated with the class instance.
 Ex:
 
 ```kotlin
-private val fooBars = Map<Foo, String>()
+private val fooBars = mutableMapOf<Foo, String>()
 
 var Foo.bar: String
   get() = fooBars[this] ?: "N/A"
@@ -72,7 +72,7 @@ object, let's look at how to do that with just a hashcode:
 Ex:
 
 ```kotlin
-private val fooBars = Map<Int, String>()
+private val fooBars = mutableMapOf<Int, String>()
 
 var Foo.bar: String
   get() = fooBars[hashCode()] ?: "N/A"
