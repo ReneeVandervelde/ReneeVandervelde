@@ -1,5 +1,4 @@
 include("base.inkui.part.kts")
-useCodeBlocks = true
 
 markdownBlog(
     description = """
