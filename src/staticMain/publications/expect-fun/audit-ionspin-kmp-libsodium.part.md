@@ -25,11 +25,16 @@ were some areas for improvement and monitoring in future releases, this
 library appears to do as claimed and provide access to Libsodium on Kotlin
 Multiplatform.
 
+### Updates
+
+ - Newer Versions `0.9.3`-`0.9.4` have been audited in a [follow-up report]
+
 ### Versions Audited
 
  - [0.9.2] (`509d22ed0552188ced522c7304186b33fdbb8332`)
 
 [0.9.2]: https://github.com/ionspin/kotlin-multiplatform-libsodium/releases/tag/0.9.2
+[follow-up report]: https://reneevandervelde.com/publications/expect-fun/audit-ionspin-kmp-libsodium-094-update.html
 
 About the Auditor
 -----------------
