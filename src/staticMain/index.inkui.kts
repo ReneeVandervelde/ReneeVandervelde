@@ -85,20 +85,20 @@ addBody(ScrollingListLayout(
         TextElement("My PGP Fingerprint is:"),
         FormattedText {
             code(group = true) {
-                text("F4F0")
-                text("FCBA")
-                text("19C3")
-                text("71E2")
-                text("FFD0")
-                text("8CB6")
-                text("2BDD")
-                text("0590")
-                text("E081")
-                text("F37C")
+                text("CDDF")
+                text("22CE")
+                text("9A8C")
+                text("9A9A")
+                text("942C")
+                text("A044")
+                text("B47A")
+                text("9AF0")
+                text("C711")
+                text("67A5")
             }
         },
         LinkNavigation {
-            link("\uD83D\uDD11 Full PGP Key", "pgp-ReneeVandervelde.asc")
+            link("\uD83D\uDD11 Full PGP Key", resource("../2026-ReneeVandervelde.asc"))
         },
     ),
     groupingStyle = GroupingStyle.Sections,
