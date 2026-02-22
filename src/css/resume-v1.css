@@ -20,6 +20,10 @@ hr
 {
     margin-top: .2rem;
 }
+body > header p
+{
+    text-align: left;
+}
 @media print
 {
     h2
