@@ -1,17 +1,15 @@
 👋 Howdy!
 =========
 
-I'm an Engineer, Currently working on [Bitkey] at [Block].
+This is my Personal GitHub, where I keep some of my open source projects.
+I also publish some projects under the org [@InkApplications].
 
-This is my Personal GitHub, where I primarily focus on creating Kotlin
-Multiplatform tools. Most of my projects are located on the group page
-for [@InkApplications]
+In general, most of my personal coding is kept private, these days, and not
+visible on GitHub.
 
 You can learn more about me on [my website][website]!
 
 [website]: https://ReneeVandervelde.com
-[Bitkey]: https://bitkey.build
-[Block]: https://block.xyz
 [@InkApplications]: https://github.com/InkApplications
 
 Software Projects
@@ -19,15 +17,13 @@ Software Projects
 
 ### Applications
 
- - [Bitkey] is my primary work project at Block. It's all open source!
+ - [Bitkey] was my primary work project at Block. It's all open source!
    Check it out!
  - [Shade] is a Kotlin SDK and CLI app built for the Phillips Hue API.
    It's one of the most comprehensive projects I've worked on and is
    well-supported. Check it out!
  - [Usonia] is my personal Home IoT controller. It's not intended for others
    to use, but I spend a lot of time working on it.
- - [ACK] and [ACK-Android] are Ham radio APRS data parsers and an application
-   for displaying the data.
 
 ### KMP Libraries
 

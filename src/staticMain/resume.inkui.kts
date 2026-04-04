@@ -24,7 +24,7 @@ addBody(
         markdown("""
             Block
             -----
-            **Staff Software Engineer**, 2023—present
+            **Staff Software Engineer**, Oct 2023 — Apr 2026
             
             Led multiple complex engineering projects for an open-source
             hardware wallet from design to launch, and through major
@@ -41,7 +41,7 @@ addBody(
         markdown("""
             Stripe
             ------
-            **Software Engineer**, 2020—2023
+            **Software Engineer**, Oct 2020 — Oct 2023
             
             Built an SDK for in-person credit card payments on a variety of
             custom hardware.
@@ -55,7 +55,7 @@ addBody(
         markdown("""
             Target
             ------
-            **Lead Software Engineer**, 2017—2020
+            **Lead Software Engineer**, Nov 2017 — Oct 2020
             
             Lead engineer for a team building internal applications for the
             retail stores.
@@ -70,7 +70,7 @@ addBody(
         markdown("""
             OPI, CaringBridge
             -----------------------------
-            **Android Consultant**, 2016—2017
+            **Android Consultant**, Jan 2016 — Nov 2017
             
             Provided engineering support for companies in the health and
             transportation sectors.
@@ -79,7 +79,7 @@ addBody(
         markdown("""
             Samsung SmartThings
             -------------------
-            **Senior Android Engineer**, 2014—2016
+            **Senior Android Engineer**, Sep 2014 — Jan 2016
             
              - Developed the flagship Android application that controls users’
             smart-home devices.
@@ -90,7 +90,7 @@ addBody(
         markdown("""
             Nerdery
             ------
-            **Developer III**, 2012—2014
+            **Developer III**, Jun 2012 — Sep 2014
             
             Created mobile, web and full-stack applications for a wide
             variety of clients.
@@ -103,7 +103,7 @@ addBody(
         markdown("""
             Parametric Technology
             --------------------
-            **Software Engineer**, 2008—2012
+            **Software Engineer**, Jul 2008 — Jun 2012
             
              - Created developer tools for automated tests, deployments and
             code quality.

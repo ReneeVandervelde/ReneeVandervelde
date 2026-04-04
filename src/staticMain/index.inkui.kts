@@ -8,7 +8,7 @@ addSitemap(
 addPageHeader(
     inline(
         FullHeader,
-        TextElement("Software Engineer, Photographer, and Friend of Open Source Software"),
+        TextElement("Software Engineer, gardener, probably a witch or something."),
     )
 )
 
@@ -34,8 +34,6 @@ addBody(ScrollingListLayout(
             I've been making software professionally for over 15 years.
 
             I am primarily focused on **Kotlin Multiplatform** development.
-
-            I'm currently building [BitKey](https://bitkey.build) at [Block](https://block.xyz) (dba. Square, Cash App)
         """.trimIndent()),
         LinkNavigation {
             link("\uD83D\uDD17 GitHub", "https://github.com/ReneeVandervelde")
