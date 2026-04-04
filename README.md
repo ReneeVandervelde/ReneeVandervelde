@@ -1,13 +1,10 @@
-👋 Howdy!
-=========
-
 This is my Personal GitHub, where I keep some of my open source projects.
-I also publish some projects under the org [@InkApplications].
 
 In general, most of my personal coding is kept private, these days, and not
 visible on GitHub.
 
-You can learn more about me on [my website][website]!
+I also publish some projects under the org [@InkApplications].
+You can learn more about me on [my website][website].
 
 [website]: https://ReneeVandervelde.com
 [@InkApplications]: https://github.com/InkApplications
