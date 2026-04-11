@@ -31,7 +31,7 @@ tasks.register<Copy>("extractResources") {
     from({
         configurations.getByName("extractResources").map { zipTree(it) }
     }) {
-        include("composeResources/com.inkapplications.ui.render_web_common.generated.resources/**")
+        include("composeResources/com.inkapplications.ui.inkui_render_web_common.generated.resources/**")
     }
     into(outputDir)
 }

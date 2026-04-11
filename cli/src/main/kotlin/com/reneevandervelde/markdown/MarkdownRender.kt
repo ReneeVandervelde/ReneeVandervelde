@@ -3,12 +3,9 @@ package com.reneevandervelde.markdown
 import com.reneevandervelde.elements.ArticleImage
 import com.reneevandervelde.elements.CitationLink
 import ink.ui.render.statichtml.InkUiScript
-import ink.ui.render.web.elements.CodeBlock
 import ink.ui.structures.GroupingStyle
 import ink.ui.structures.TextStyle
 import ink.ui.structures.elements.*
-import org.intellij.markdown.MarkdownElementType
-import org.intellij.markdown.MarkdownElementTypes
 import org.intellij.markdown.MarkdownElementTypes.ATX_1
 import org.intellij.markdown.MarkdownElementTypes.ATX_2
 import org.intellij.markdown.MarkdownElementTypes.ATX_3
@@ -31,26 +28,14 @@ import org.intellij.markdown.MarkdownElementTypes.STRONG
 import org.intellij.markdown.MarkdownElementTypes.UNORDERED_LIST
 import org.intellij.markdown.MarkdownTokenTypes
 import org.intellij.markdown.MarkdownTokenTypes.Companion.CODE_FENCE_CONTENT
-import org.intellij.markdown.MarkdownTokenTypes.Companion.COLON
-import org.intellij.markdown.MarkdownTokenTypes.Companion.DOUBLE_QUOTE
 import org.intellij.markdown.MarkdownTokenTypes.Companion.EOL
-import org.intellij.markdown.MarkdownTokenTypes.Companion.ESCAPED_BACKTICKS
-import org.intellij.markdown.MarkdownTokenTypes.Companion.EXCLAMATION_MARK
 import org.intellij.markdown.MarkdownTokenTypes.Companion.FENCE_LANG
-import org.intellij.markdown.MarkdownTokenTypes.Companion.GT
 import org.intellij.markdown.MarkdownTokenTypes.Companion.HARD_LINE_BREAK
 import org.intellij.markdown.MarkdownTokenTypes.Companion.HORIZONTAL_RULE
-import org.intellij.markdown.MarkdownTokenTypes.Companion.LBRACKET
-import org.intellij.markdown.MarkdownTokenTypes.Companion.LPAREN
-import org.intellij.markdown.MarkdownTokenTypes.Companion.LT
-import org.intellij.markdown.MarkdownTokenTypes.Companion.RBRACKET
-import org.intellij.markdown.MarkdownTokenTypes.Companion.RPAREN
 import org.intellij.markdown.MarkdownTokenTypes.Companion.SETEXT_CONTENT
-import org.intellij.markdown.MarkdownTokenTypes.Companion.SINGLE_QUOTE
 import org.intellij.markdown.MarkdownTokenTypes.Companion.TEXT
 import org.intellij.markdown.MarkdownTokenTypes.Companion.WHITE_SPACE
 import org.intellij.markdown.ast.ASTNode
-import org.intellij.markdown.ast.LeafASTNode
 import org.intellij.markdown.ast.findChildOfType
 import org.intellij.markdown.ast.getTextInNode
 import org.intellij.markdown.flavours.commonmark.CommonMarkFlavourDescriptor
@@ -134,9 +119,12 @@ private fun renderNode(
                 .toTypedArray()
             val text = renderFormattedText(text, node)
 
-            inline(
-                *images,
-                text
+            ElementList(
+                items = listOf(
+                    *images,
+                    text
+                ),
+                groupingStyle = GroupingStyle.Inline
             )
         }
         CODE_FENCE -> CodeBlock(
@@ -169,7 +157,7 @@ private fun renderNode(
                 .let { ElementList(it, groupingStyle = GroupingStyle.Inline) }
         } else {
             val rawText = node.getTextInNode(text).toString().trim()
-            if (rawText.isBlank()) EmptyElement else FormattedText(paragraph = false) {
+            if (rawText.isBlank()) EmptyElement else FormattedText.build(paragraph = false) {
                 text(rawText)
             }
         }
@@ -219,7 +207,7 @@ private fun getContent(text: String, node: ASTNode): String {
 
 private fun renderFormattedText(text: String, node: ASTNode): FormattedText {
     when (node.type) {
-        PARAGRAPH -> return FormattedText {
+        PARAGRAPH -> return FormattedText.build {
             node.children.forEach {
                 buildText(text, it)
             }

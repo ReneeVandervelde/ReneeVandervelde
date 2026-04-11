@@ -9,16 +9,16 @@ blog(
     """.trimIndent(),
     published = LocalDate(2026, 2, 21),
     keywords = listOf("security", "pgp", "key rotation", "cryptography"),
-    body = inline(
-        TextElement("""
+    body = ElementList.build(groupingStyle = GroupingStyle.Inline) {
+        text("""
             It has been nearly 10 years since I generated my original PGP keys that
             I use for software signing. It's about time to rotate the keys.
-        """.trimIndent()),
-        FormattedText {
+        """.trimIndent())
+        formattedText {
             text("I have")
             space()
             strong {
-                text("no reason")
+              text("no reason")
             }
             space()
             text("to suspect that my prior keys have been compromised.")
@@ -26,16 +26,16 @@ blog(
             text("However, I will be revoking them within the next day")
             space()
             text("to ensure that the new keys are used going forward.")
-        },
-        TextElement("""
+        }
+        text("""
             Unlike the prior keys, the new root key was generated on an air-gapped
             machine and protected by secure hardware before being shredded.
             This strictly limits access to the private keys, keeping them
             safer from software compromises.
-        """.trimIndent()),
-        TextElement("New Root Key", style = TextStyle.H2),
-        TextElement("The new pgp fingerprint I will be using going forward:"),
-        FormattedText {
+        """.trimIndent())
+        h2("New Root Key")
+        text("The new pgp fingerprint I will be using going forward:")
+        formattedText {
             code(group = true) {
                 text("CDDF")
                 text("22CE")
@@ -48,16 +48,16 @@ blog(
                 text("C711")
                 text("67A5")
             }
-        },
-        FormattedText {
+        }
+        formattedText {
             text("The full keyfile can be downloaded")
             space()
             link(url = resource("../2026-ReneeVandervelde.asc")) {
                 text("here")
             }
             text(".")
-        },
-        FormattedText {
+        }
+        formattedText {
             text("""
                 Subkeys are generated directly on secure hardware and will be
                 rotated every 5 years. These keys will be used for commit and
@@ -66,13 +66,13 @@ blog(
             space()
             code { text("5A59-6077") }
             text(".")
-        },
-        FormattedText {
+        }
+        formattedText {
             text("The new key has been signed the previous key,")
             space()
             code { text("E081-F37C") }
             text(", ")
             text("so that it may be verified using existing trust.")
-        },
-    )
+        }
+    }
 )

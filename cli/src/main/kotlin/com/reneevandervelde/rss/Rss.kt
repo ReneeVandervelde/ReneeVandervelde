@@ -77,7 +77,7 @@ fun InkUiScript.addRssLink(
     title: String,
     location: String,
 ) {
-    addHead {
+    head {
         link(rel = "alternate", type = "application/rss+xml", href = location) {
             attributes["title"] = title
         }

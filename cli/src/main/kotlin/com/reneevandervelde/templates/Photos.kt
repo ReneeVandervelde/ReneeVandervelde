@@ -11,12 +11,9 @@ import com.reneevandervelde.sitemap.ChangeFrequency
 import com.reneevandervelde.sitemap.SitemapPriority
 import com.reneevandervelde.sitemap.addSitemap
 import ink.ui.render.statichtml.InkUiScript
-import ink.ui.structures.GroupingStyle
-import ink.ui.structures.elements.BreadcrumbElement
-import ink.ui.structures.layouts.ScrollingListLayout
+import ink.ui.structures.elements.breadcrumbs
 import kotlinx.datetime.LocalDate
 import kotlinx.html.meta
-import java.io.File
 
 
 private val filePhotos = mutableMapOf<InkUiScript, PhotoData>()
@@ -100,20 +97,20 @@ fun InkUiScript.photo(
         priority = SitemapPriority.High,
     )
 
-    addPageHeader(
-        BreadcrumbElement {
+    header {
+        breadcrumbs {
             link("Renee Vandervelde", "../../index.html")
             link("Photography", "../index.html")
             text(title)
         }
-    )
+    }
 
-    addHead {
+    head {
       meta(name = "og:image", content = thumbnail)
     }
 
-    addBody(
-        ScrollingListLayout(
+    body {
+        append(
             Photo(
                 title = title,
                 source = full,
@@ -121,8 +118,7 @@ fun InkUiScript.photo(
                 description = description,
                 published = published,
                 taken = taken,
-            ),
-            groupingStyle = GroupingStyle.Inline,
+            )
         )
-    )
+    }
 }

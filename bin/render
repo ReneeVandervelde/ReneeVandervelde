@@ -37,7 +37,7 @@ $PRINT_CMD "> Copying resources"
 mkdir -p "$DIR_OUTPUTS/resources/css" || exit $FAIL_RESOURCE
 mkdir -p "$DIR_OUTPUTS/resources/images" || exit $FAIL_RESOURCE
 mkdir -p "$DIR_OUTPUTS/resources/js" || exit $FAIL_RESOURCE
-cp $COPY_ARGS -rn "$DIR_PROJECT/cli/build/output/resources/composeResources/com.inkapplications.ui.render_web_common.generated.resources/." "$DIR_OUTPUTS/resources/" || exit $FAIL_RESOURCE
+cp $COPY_ARGS -rn "$DIR_PROJECT/cli/build/output/resources/composeResources/com.inkapplications.ui.inkui_render_web_common.generated.resources/." "$DIR_OUTPUTS/resources/" || exit $FAIL_RESOURCE
 cp $COPY_ARGS -rn "$DIR_PROJECT/src/css/." "$DIR_OUTPUTS/resources/css/" || exit $FAIL_RESOURCE
 cp $COPY_ARGS -rn "$DIR_PROJECT/src/images/." "$DIR_OUTPUTS/resources/images/" || exit $FAIL_RESOURCE
 cp $COPY_ARGS -rn "$DIR_PROJECT/src/raw/." "$DIR_OUTPUTS" || exit $FAIL_RESOURCE

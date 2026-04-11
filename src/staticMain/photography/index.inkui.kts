@@ -1,5 +1,5 @@
 resourceBaseUrl = "../resources"
-addStyle(resource("css/main-v10.css"))
+addStyle(resource("css/main-v11.css"))
 addStyle(resource("css/photo-index-v1.css"))
 meta.robots = "index, follow"
 page.title = "Photography by Renee Vandervelde"
@@ -20,25 +20,24 @@ addSitemap(
     ).maxOrNull()!!,
 )
 
-addPageHeader(
-    BreadcrumbElement {
+header {
+    breadcrumbs {
         link("Renee Vandervelde", "../index.html")
         text("Photography")
     }
-)
+}
 
-addPageHeader(
+header {
     ContentHeader(
         title = "Photography",
-    ),
-)
+    ).also(::append)
+}
 
-
-addBody(
-    FixedGridLayout(
+body {
+    ElementGrid(
         columns = 3,
         items = photos.map { photo ->
-            FixedGridLayout.GridItem(
+            ElementGrid.GridItem(
                 span = 1,
                 horizontalPositioning = Positioning.Center,
                 body = PhotoThumbnail(
@@ -49,5 +48,5 @@ addBody(
                 )
             )
         }
-    )
-)
+    ).also(::append)
+}

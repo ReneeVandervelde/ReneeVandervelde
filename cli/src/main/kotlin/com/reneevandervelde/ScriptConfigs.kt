@@ -16,6 +16,7 @@ internal val customRenderers = arrayOf(
     ContentHeader.Renderer,
     EncryptionHeader.Renderer,
     FullHeader.Renderer,
+    Footer.Renderer,
     Photo.Renderer,
     PhotoThumbnail.Renderer,
     SideImage.Renderer,

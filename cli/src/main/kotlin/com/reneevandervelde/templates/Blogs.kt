@@ -13,9 +13,7 @@ import com.reneevandervelde.singleLine
 import com.reneevandervelde.sitemap.SitemapPriority
 import com.reneevandervelde.sitemap.addSitemap
 import ink.ui.render.statichtml.InkUiScript
-import ink.ui.structures.GroupingStyle
 import ink.ui.structures.elements.*
-import ink.ui.structures.layouts.ScrollingListLayout
 import kotlinx.datetime.LocalDate
 import kotlinx.html.*
 
@@ -77,11 +75,11 @@ fun InkUiScript.blog(
         updated = updated ?: published,
         priority = SitemapPriority.Highest,
     )
-    addHead {
+    head {
         meta(name = "description", content = description.singleLine())
     }
-    addBody(
-        ScrollingListLayout(
+    body {
+        append(
             Article(
                 header = ArticleHeader(
                     title = title,
@@ -89,9 +87,8 @@ fun InkUiScript.blog(
                     updated = updated,
                 ),
                 content = body,
-            ),
-            groupingStyle = GroupingStyle.Inline,
+            )
         )
-    )
+    }
 }
 

@@ -2,9 +2,10 @@ package com.reneevandervelde.elements
 
 import ink.ui.render.statichtml.renderer.renderer
 import ink.ui.structures.elements.UiElement
-import ink.ui.structures.layouts.FixedGridLayout
 import kotlinx.html.h1
+import kotlinx.html.p
 import kotlinx.html.pre
+import kotlinx.html.span
 
 private val ASCII = """
    ___                     _   __             __                 __   __   
@@ -22,6 +23,15 @@ data object FullHeader: UiElement.Static {
                 attributes["aria-hidden"] = "true"
                 +ASCII
             }
+        }
+    }
+}
+
+data object Footer: UiElement.Static {
+    val Renderer = renderer<Footer> {
+        p {
+            span("emoji") { +"\u270c\uFE0F" }
+            +" You are appreciated."
         }
     }
 }
