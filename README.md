@@ -1,9 +1,10 @@
-This is my Personal GitHub, where I keep some of my open source projects.
+⚠️ I don't use GitHub anymore!
 
-In general, most of my personal coding is kept private, these days, and not
-visible on GitHub.
+This is my Personal GitHub.
+I've started to keep most of my coding projects private. So you won't see
+much of my coding activity here.
 
-I also publish some projects under the org [@InkApplications].
+I have also published some projects under the org [@InkApplications].
 You can learn more about me on [my website][website].
 
 [website]: https://ReneeVandervelde.com
