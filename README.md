@@ -1,51 +1,8 @@
 ⚠️ I don't use GitHub anymore!
 
-This is my Personal GitHub.
-I've started to keep most of my coding projects private. So you won't see
-much of my coding activity here.
+My contributions and repositories are now **private** as of 2026. 
 
-I have also published some projects under the org [@InkApplications].
-You can learn more about me on [my website][website].
+Learn more about me at [my website][website].
 
 [website]: https://ReneeVandervelde.com
-[@InkApplications]: https://github.com/InkApplications
 
-Software Projects
------------------
-
-### Applications
-
- - [Bitkey] was my primary work project at Block. It's all open source!
-   Check it out!
- - [Shade] is a Kotlin SDK and CLI app built for the Phillips Hue API.
-   It's one of the most comprehensive projects I've worked on and is
-   well-supported. Check it out!
- - [Usonia] is my personal Home IoT controller. It's not intended for others
-   to use, but I spend a lot of time working on it.
-
-### KMP Libraries
-
- - [Spondee] is a set of classes used for expressing units of measure in Kotlin.
- - [Kimchi] is a Kotlin multiplatform logger with an API based on Timber.
- - [Watermelon] is a collection of Kotlin Multiplatform extensions.
- - [Regolith] is a collection of generic application interterfaces for
-   Multiplatform projects.
-
-### Code Audits
-
-I'm making an effort to audit some important libraries to give
-back to the open source community and help Kotlin grow.
-
- - [Results][ionspin-audit] for [Ionspin's KMP-Libsodium][ionspin-kmp-libsodium]
-
-[ionspin-kmp-libsodium]: https://github.com/ionspin/kotlin-multiplatform-libsodium
-[ionspin-audit]: https://reneevandervelde.com/publications/expect-fun/audit-ionspin-kmp-libsodium.html
-[Bitkey]: https://github.com/proto-at-block/bitkey
-[Shade]: https://github.com/InkApplications/Shade
-[ACK]: https://github.com/InkApplications/Ack
-[ACK-Android]: https://github.com/InkApplications/ack-android
-[Kimchi]: https://github.com/InkApplications/Kimchi
-[Usonia]: https://github.com/ReneeVandervelde/Usonia
-[Spondee]: https://github.com/inkapplications/Spondee
-[Watermelon]: https://github.com/inkapplications/Watermelon
-[Regolith]: https://github.com/inkapplications/Regolith
